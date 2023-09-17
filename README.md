@@ -1,1 +1,1 @@
-
+The aim of the project “Personal Safety Management system for girls” is to create a web and mobile application that empower girls and women to enhance their personal safety and well-being by leveraging technology. In this application, the user can find safer routes to their destinations, press panic button, inform emergency contacts, and much more.
