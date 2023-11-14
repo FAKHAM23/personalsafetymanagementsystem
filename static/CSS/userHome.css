@@ -1,0 +1,251 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+#navbar::before{
+    content: "";
+    background-color: #470042;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+#logo{
+    display: flex;
+    height: 6.4rem;
+    width: 4.4rem;
+    margin: 8px 0px 0px 26px;
+}
+#middle{
+    margin: 0px 0px 0px 0px;
+}
+
+#navbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+#navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.2rem;
+}
+#navbar ul li a{
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+#navbar ul li a:hover{
+    background-color: cornflowerblue;
+    color: yellow;
+}
+
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 28px 70px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    height: 378px;
+    color: black;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+}
+body::before{
+
+    background: url('../resources/9.jpg') no-repeat center center/cover;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.9;
+}
+.btn{
+    padding: 10px 32px;   
+    font-size: 1rem;
+    border-radius: 7px;
+    background-color:darkslategray ;
+    color:white;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px; 
+    width: 100%;
+    /* align-items: center;
+    justify-content: center; */
+    /* height: 100vh; */
+}
+
+
+.left-half {
+    position: relative;
+    /* display: flex; */
+    flex: 1;
+    height: 100%;
+    width: auto;
+    box-sizing: border-box;
+    padding: 20px 0px 0px 0px;
+    border-radius: 45px;
+    overflow: hidden;
+    color: white;
+    padding: 20px;
+}
+/* 
+.left-half::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #470042;
+    border-radius: 45px;
+    filter: blur(70px); 
+    z-index: -1; Move the pseudo-element behind the content
+}  */
+
+.right-half{
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.unsafe-button {
+    /* position: absolute; */
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff0000; /* Red button color */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+}
+
+.woman-safety {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    /* background-color: #f1f1f1; */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 15px 0px 0px;
+    color: white;
+   }
+   
+   .profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+   }
+   
+   .user-info {
+    margin-left: 10px;
+   }
+   
+   .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+   }
+   
+   .user-type {
+    font-size: 14px;
+    color: #fbb0b0;
+    display: block;
+   }
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 200px) {
+
+    /* *{
+        background-color: black;
+    } */
+    /* Adjust styles for screens less than or equal to 600px width */
+    #navbar {
+        flex-direction: column;
+    }
+
+    #logo {
+        margin: 8px 0px 0px 0px; /* Adjusted margin for smaller screens */
+    }
+
+    #middle {
+        margin: 10px 0; /* Adjusted margin for smaller screens */
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #navbar ul li {
+        margin: 5px 0; /* Adjusted margin for smaller screens */
+    }
+
+    .container {
+        max-width: 100%;
+        /* display: flex; */
+        flex-direction: column;
+    }
+
+    .left-half,
+    .right-half {
+        /* display: flex; */
+        width: 100%; /* Full width for smaller screens */
+        margin: 10px 0; /* Adjusted margin for smaller screens */
+    }
+
+    .unsafe-button {
+        width: 100%; /* Full width for smaller screens */
+        height: auto; /* Auto height for smaller screens */
+        font-size: 16px; /* Adjusted font size for smaller screens */
+    }
+
+    .profile-icon img {
+        width: 25px; /* Adjusted width for smaller screens */
+        height: 25px; /* Adjusted height for smaller screens */
+    }
+
+    .user-name {
+        font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+
+    .user-type {
+        font-size: 10px; /* Adjusted font size for smaller screens */
+    }
+}
