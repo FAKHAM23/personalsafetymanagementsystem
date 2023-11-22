@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using WomanSafety.UI;
+using WomanSafety.BL;
+using WomanSafety.DL;
 
 namespace WomanSafety
 {
@@ -54,54 +56,32 @@ namespace WomanSafety
                 MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            //string PasswordtoHash = PasswordHasher.HashPassword(password);
+            //Console.WriteLine(PasswordtoHash);
+            UserBL UserToFind = new UserBL(userName, password);
+            int RoleId = UserDL.FindUser(UserToFind);
+            //frmLogin LoginPage = new frmLogin();
+            this.Hide();
 
-            try
+            if (RoleId == 2)
             {
-                var con = Configuration.getInstance().getConnection();
-
-                // Use parameterized query to prevent SQL injection
-                string query = "SELECT * FROM [User] WHERE [UserName] = @Username AND [Password] = @Password";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                // Show the frmUserHome form
+                using (frmUserHome userHomeForm = new frmUserHome())
                 {
-                    cmd.Parameters.AddWithValue("@Username", userName);
-                    cmd.Parameters.AddWithValue("@Password", password);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // Retrieve the user's role ID
-                            int roleId = Convert.ToInt32(reader["RoleID"]);
-
-                            // Successful login
-                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
-
-                            if (roleId == 2)
-                            {
-                                // Show the frmUserHome form
-                                using (frmUserHome userHomeForm = new frmUserHome())
-                                {
-                                    userHomeForm.ShowDialog();
-                                }
-                            }
-                            else
-                            {
-
-                            } 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    userHomeForm.ShowDialog();
+                    Console.WriteLine("User Found!");
                 }
             }
-            catch (Exception ex)
+            else if (RoleId == 1)
             {
-                MessageBox.Show($"Error during login: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Admin Found!");
             }
+            /*else
+            {
+                Console.WriteLine("No User Found!");
+                MessageBox.Show("No User Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+
         }
 
         private void chkShowPass_CheckedChanged(object sender, EventArgs e)

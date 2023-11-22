@@ -497,7 +497,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtUserName;
         private System.Windows.Forms.Label label5;
         private MaterialSkin.Controls.MaterialTextBox2 txtPassword;
-        private MaterialSkin.Controls.MaterialListView materialListView1;
+        //private MaterialSkin.Controls.MaterialListView materialListView1;
         private MaterialSkin.Controls.MaterialTextBox2 txtConfirmPass;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

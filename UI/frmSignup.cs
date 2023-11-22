@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
+using WomanSafety.BL;
+using WomanSafety.DL;
 
 namespace WomanSafety
 {
@@ -81,27 +83,10 @@ namespace WomanSafety
                 txtConfirmPass.Text = "";
                 return;
             }
-
-            // Passwords match, proceed to insert into the database
-            try
-            {
-                var con = Configuration.getInstance().getConnection();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO [User] ([UserName], [Password], [RoleID], [CreatedAt], [UpdatedAt]) VALUES (@Username, @Password, @RoleID, @CreatedAt, @UpdatedAt)", con))
-                {
-                    cmd.Parameters.AddWithValue("@Username", userName);
-                    cmd.Parameters.AddWithValue("@Password", enteredPassword);
-                    cmd.Parameters.AddWithValue("@RoleID", roleId);
-                    cmd.Parameters.AddWithValue("@CreatedAt", createdAt);
-                    cmd.Parameters.AddWithValue("@UpdatedAt", updatedAt);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("New User Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error inserting user into the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string HashedPassword = PasswordHasher.HashPassword(enteredPassword);
+            UserBL NewUser = new UserBL(userName,HashedPassword,roleId,createdAt,updatedAt);
+            UserDL.AddUser(NewUser);
+            
         }
 
 
