@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignupPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -49,10 +48,7 @@
             this.btnSignUpBack = new MaterialSkin.Controls.MaterialButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbxRole = new MaterialSkin.Controls.MaterialComboBox();
-            this.userRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personalSafetyDatabaseDataSet = new WomanSafety.PersonalSafetyDatabaseDataSet();
             this.label4 = new System.Windows.Forms.Label();
-            this.userRoleTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSetTableAdapters.UserRoleTableAdapter();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,8 +56,6 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userRoleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -406,9 +400,7 @@
             // 
             this.cmbxRole.AutoResize = false;
             this.cmbxRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbxRole.DataSource = this.userRoleBindingSource;
             this.cmbxRole.Depth = 0;
-            this.cmbxRole.DisplayMember = "RoleName";
             this.cmbxRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbxRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbxRole.DropDownHeight = 118;
@@ -430,16 +422,6 @@
             this.cmbxRole.UseTallSize = false;
             this.cmbxRole.ValueMember = "UserRoleID";
             // 
-            // userRoleBindingSource
-            // 
-            this.userRoleBindingSource.DataMember = "UserRole";
-            this.userRoleBindingSource.DataSource = this.personalSafetyDatabaseDataSet;
-            // 
-            // personalSafetyDatabaseDataSet
-            // 
-            this.personalSafetyDatabaseDataSet.DataSetName = "PersonalSafetyDatabaseDataSet";
-            this.personalSafetyDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -453,10 +435,6 @@
             this.label4.Text = "User Name:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // userRoleTableAdapter
-            // 
-            this.userRoleTableAdapter.ClearBeforeFill = true;
-            // 
             // SignupPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,7 +444,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SignupPage";
             this.Text = "SignUp";
-            this.Load += new System.EventHandler(this.SignupPage_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -477,8 +454,6 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userRoleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,9 +481,6 @@
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialComboBox cmbxRole;
         private System.Windows.Forms.Label label4;
-        private PersonalSafetyDatabaseDataSet personalSafetyDatabaseDataSet;
-        private System.Windows.Forms.BindingSource userRoleBindingSource;
-        private PersonalSafetyDatabaseDataSetTableAdapters.UserRoleTableAdapter userRoleTableAdapter;
     }
 }
 

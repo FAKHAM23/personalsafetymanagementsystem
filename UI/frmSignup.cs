@@ -90,11 +90,5 @@ namespace WomanSafety
         }
 
 
-        private void SignupPage_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet.UserRole' table. You can move, or remove it, as needed.
-            this.userRoleTableAdapter.Fill(this.personalSafetyDatabaseDataSet.UserRole);
-
-        }
     }
 }

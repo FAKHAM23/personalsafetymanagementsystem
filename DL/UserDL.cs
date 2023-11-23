@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WomanSafety.BL;
-using WomanSafety.UI;
+//using WomanSafety.UI;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WomanSafety.DL
