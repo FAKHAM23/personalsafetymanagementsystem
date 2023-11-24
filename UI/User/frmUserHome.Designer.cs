@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserHome));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserHome));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
             this.tblHome = new System.Windows.Forms.TableLayoutPanel();
+            this.roundedButton1 = new WomanSafety.UI.RoundedButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.swhSendLocation = new MaterialSkin.Controls.MaterialSwitch();
-            this.roundedButton1 = new WomanSafety.UI.RoundedButton();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.crdmap = new MaterialSkin.Controls.MaterialCard();
+            this.gMapHome = new GMap.NET.WindowsForms.GMapControl();
             this.tabPageRoute = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -74,18 +75,16 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            this.btnAddRubric = new MaterialSkin.Controls.MaterialButton();
-            this.txtRubricDetaills = new MaterialSkin.Controls.MaterialTextBox2();
-            this.cbCLOs = new MaterialSkin.Controls.MaterialComboBox();
-            this.dgvRubric = new System.Windows.Forms.DataGridView();
-            this.View = new System.Windows.Forms.DataGridViewImageColumn();
-            this.EditRubirc = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DeleteRubric = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvSafetyTips = new System.Windows.Forms.DataGridView();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.View = new System.Windows.Forms.DataGridViewImageColumn();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
+            this.crdmap.SuspendLayout();
             this.tabPageRoute.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
@@ -102,7 +101,8 @@
             this.tabPageSafety.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.materialCard5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRubric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).BeginInit();
+            this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -135,17 +135,16 @@
             this.tabPageHome.Size = new System.Drawing.Size(835, 418);
             this.tabPageHome.TabIndex = 0;
             this.tabPageHome.Text = "Home";
-            this.tabPageHome.Click += new System.EventHandler(this.tabPageHome_Click);
             // 
             // tblHome
             // 
             this.tblHome.ColumnCount = 2;
-            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.33293F));
-            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.66707F));
+            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.8275F));
+            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1725F));
             this.tblHome.Controls.Add(this.roundedButton1, 1, 1);
             this.tblHome.Controls.Add(this.materialLabel1, 0, 0);
             this.tblHome.Controls.Add(this.swhSendLocation, 1, 0);
-            this.tblHome.Controls.Add(this.materialCard1, 0, 1);
+            this.tblHome.Controls.Add(this.crdmap, 0, 1);
             this.tblHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblHome.Location = new System.Drawing.Point(3, 3);
             this.tblHome.Name = "tblHome";
@@ -154,6 +153,20 @@
             this.tblHome.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblHome.Size = new System.Drawing.Size(829, 412);
             this.tblHome.TabIndex = 1;
+            // 
+            // roundedButton1
+            // 
+            this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.roundedButton1.BackColor = System.Drawing.Color.Red;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton1.Location = new System.Drawing.Point(598, 133);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(185, 186);
+            this.roundedButton1.TabIndex = 8;
+            this.roundedButton1.Text = "Feeling Unsafe Click Here!";
+            this.roundedButton1.UseVisualStyleBackColor = false;
             // 
             // materialLabel1
             // 
@@ -179,7 +192,7 @@
             this.swhSendLocation.Checked = true;
             this.swhSendLocation.CheckState = System.Windows.Forms.CheckState.Checked;
             this.swhSendLocation.Depth = 0;
-            this.swhSendLocation.Location = new System.Drawing.Point(467, 0);
+            this.swhSendLocation.Location = new System.Drawing.Point(553, 0);
             this.swhSendLocation.Margin = new System.Windows.Forms.Padding(0);
             this.swhSendLocation.MouseLocation = new System.Drawing.Point(-1, -1);
             this.swhSendLocation.MouseState = MaterialSkin.MouseState.HOVER;
@@ -189,35 +202,50 @@
             this.swhSendLocation.TabIndex = 7;
             this.swhSendLocation.Text = "Send Location";
             this.swhSendLocation.UseVisualStyleBackColor = true;
+            this.swhSendLocation.CheckedChanged += new System.EventHandler(this.swhSendLocation_CheckedChanged);
             // 
-            // roundedButton1
+            // crdmap
             // 
-            this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.roundedButton1.BackColor = System.Drawing.Color.Red;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButton1.Location = new System.Drawing.Point(555, 133);
-            this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(185, 186);
-            this.roundedButton1.TabIndex = 8;
-            this.roundedButton1.Text = "Feeling Unsafe Click Here!";
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.crdmap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.crdmap.Controls.Add(this.gMapHome);
+            this.crdmap.Depth = 0;
+            this.crdmap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crdmap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.crdmap.Location = new System.Drawing.Point(14, 55);
+            this.crdmap.Margin = new System.Windows.Forms.Padding(14);
+            this.crdmap.MouseState = MaterialSkin.MouseState.HOVER;
+            this.crdmap.Name = "crdmap";
+            this.crdmap.Padding = new System.Windows.Forms.Padding(14);
+            this.crdmap.Size = new System.Drawing.Size(525, 343);
+            this.crdmap.TabIndex = 9;
             // 
-            // materialCard1
+            // gMapHome
             // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Depth = 0;
-            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(14, 55);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(439, 343);
-            this.materialCard1.TabIndex = 9;
-            this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
+            this.gMapHome.Bearing = 0F;
+            this.gMapHome.CanDragMap = true;
+            this.gMapHome.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.gMapHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gMapHome.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapHome.GrayScaleMode = false;
+            this.gMapHome.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapHome.LevelsKeepInMemory = 5;
+            this.gMapHome.Location = new System.Drawing.Point(14, 14);
+            this.gMapHome.MarkersEnabled = true;
+            this.gMapHome.MaxZoom = 20;
+            this.gMapHome.MinZoom = 2;
+            this.gMapHome.MouseWheelZoomEnabled = true;
+            this.gMapHome.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapHome.Name = "gMapHome";
+            this.gMapHome.NegativeMode = false;
+            this.gMapHome.PolygonsEnabled = true;
+            this.gMapHome.RetryLoadTile = 0;
+            this.gMapHome.RoutesEnabled = true;
+            this.gMapHome.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapHome.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapHome.ShowTileGridLines = false;
+            this.gMapHome.Size = new System.Drawing.Size(497, 315);
+            this.gMapHome.TabIndex = 0;
+            this.gMapHome.Zoom = 0D;
             // 
             // tabPageRoute
             // 
@@ -543,7 +571,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.97222F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02778F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel4.Controls.Add(this.txtCLO, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAddCLO, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
@@ -569,7 +597,7 @@
             this.txtCLO.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCLO.Multiline = false;
             this.txtCLO.Name = "txtCLO";
-            this.txtCLO.Size = new System.Drawing.Size(247, 50);
+            this.txtCLO.Size = new System.Drawing.Size(245, 50);
             this.txtCLO.TabIndex = 1;
             this.txtCLO.Text = "";
             this.txtCLO.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtCLO.TrailingIcon")));
@@ -582,7 +610,7 @@
             this.btnAddCLO.Depth = 0;
             this.btnAddCLO.HighEmphasis = true;
             this.btnAddCLO.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddCLO.Icon")));
-            this.btnAddCLO.Location = new System.Drawing.Point(302, 6);
+            this.btnAddCLO.Location = new System.Drawing.Point(298, 6);
             this.btnAddCLO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddCLO.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCLO.Name = "btnAddCLO";
@@ -743,9 +771,9 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.24427F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.75572F));
-            this.tableLayoutPanel6.Controls.Add(this.materialLabel8, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.materialCard1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.materialCard5, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.dgvRubric, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.dgvSafetyTips, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -762,13 +790,13 @@
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
             this.materialLabel8.HighEmphasis = true;
-            this.materialLabel8.Location = new System.Drawing.Point(5, 0);
+            this.materialLabel8.Location = new System.Drawing.Point(19, 14);
             this.materialLabel8.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(81, 29);
+            this.materialLabel8.Size = new System.Drawing.Size(119, 29);
             this.materialLabel8.TabIndex = 8;
-            this.materialLabel8.Text = "Rubrics";
+            this.materialLabel8.Text = "Safety Tips";
             this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.materialLabel8.UseAccent = true;
             this.materialLabel8.UseMnemonic = false;
@@ -776,9 +804,7 @@
             // materialCard5
             // 
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.btnAddRubric);
-            this.materialCard5.Controls.Add(this.txtRubricDetaills);
-            this.materialCard5.Controls.Add(this.cbCLOs);
+            this.materialCard5.Controls.Add(this.materialMultiLineTextBox1);
             this.materialCard5.Depth = 0;
             this.materialCard5.Dock = System.Windows.Forms.DockStyle.Top;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -790,128 +816,25 @@
             this.materialCard5.Size = new System.Drawing.Size(572, 128);
             this.materialCard5.TabIndex = 0;
             // 
-            // btnAddRubric
+            // dgvSafetyTips
             // 
-            this.btnAddRubric.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddRubric.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddRubric.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAddRubric.Depth = 0;
-            this.btnAddRubric.HighEmphasis = true;
-            this.btnAddRubric.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddRubric.Icon")));
-            this.btnAddRubric.Location = new System.Drawing.Point(386, 84);
-            this.btnAddRubric.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAddRubric.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddRubric.Name = "btnAddRubric";
-            this.btnAddRubric.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAddRubric.Size = new System.Drawing.Size(133, 36);
-            this.btnAddRubric.TabIndex = 2;
-            this.btnAddRubric.Text = "Add Rubric";
-            this.btnAddRubric.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAddRubric.UseAccentColor = false;
-            this.btnAddRubric.UseVisualStyleBackColor = true;
-            // 
-            // txtRubricDetaills
-            // 
-            this.txtRubricDetaills.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRubricDetaills.AnimateReadOnly = false;
-            this.txtRubricDetaills.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtRubricDetaills.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtRubricDetaills.Depth = 0;
-            this.txtRubricDetaills.ErrorMessage = "Error";
-            this.txtRubricDetaills.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtRubricDetaills.HideSelection = true;
-            this.txtRubricDetaills.Hint = "Rubric Details";
-            this.txtRubricDetaills.LeadingIcon = null;
-            this.txtRubricDetaills.Location = new System.Drawing.Point(17, 72);
-            this.txtRubricDetaills.MaxLength = 32767;
-            this.txtRubricDetaills.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtRubricDetaills.Name = "txtRubricDetaills";
-            this.txtRubricDetaills.PasswordChar = '\0';
-            this.txtRubricDetaills.PrefixSuffixText = null;
-            this.txtRubricDetaills.ReadOnly = false;
-            this.txtRubricDetaills.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRubricDetaills.SelectedText = "";
-            this.txtRubricDetaills.SelectionLength = 0;
-            this.txtRubricDetaills.SelectionStart = 0;
-            this.txtRubricDetaills.ShortcutsEnabled = true;
-            this.txtRubricDetaills.Size = new System.Drawing.Size(346, 48);
-            this.txtRubricDetaills.TabIndex = 1;
-            this.txtRubricDetaills.TabStop = false;
-            this.txtRubricDetaills.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtRubricDetaills.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtRubricDetaills.TrailingIcon")));
-            this.txtRubricDetaills.UseSystemPasswordChar = false;
-            // 
-            // cbCLOs
-            // 
-            this.cbCLOs.AutoResize = false;
-            this.cbCLOs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbCLOs.Depth = 0;
-            this.cbCLOs.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbCLOs.DropDownHeight = 174;
-            this.cbCLOs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCLOs.DropDownWidth = 121;
-            this.cbCLOs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cbCLOs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbCLOs.FormattingEnabled = true;
-            this.cbCLOs.Hint = "CLOs";
-            this.cbCLOs.IntegralHeight = false;
-            this.cbCLOs.ItemHeight = 43;
-            this.cbCLOs.Location = new System.Drawing.Point(17, 17);
-            this.cbCLOs.MaxDropDownItems = 4;
-            this.cbCLOs.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbCLOs.Name = "cbCLOs";
-            this.cbCLOs.Size = new System.Drawing.Size(121, 49);
-            this.cbCLOs.StartIndex = 0;
-            this.cbCLOs.TabIndex = 0;
-            // 
-            // dgvRubric
-            // 
-            this.dgvRubric.AllowUserToAddRows = false;
-            this.dgvRubric.AllowUserToOrderColumns = true;
-            this.dgvRubric.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRubric.BackgroundColor = System.Drawing.Color.White;
-            this.dgvRubric.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvRubric.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvRubric.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRubric.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.View,
-            this.EditRubirc,
-            this.DeleteRubric});
-            this.tableLayoutPanel6.SetColumnSpan(this.dgvRubric, 2);
-            this.dgvRubric.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRubric.Location = new System.Drawing.Point(3, 161);
-            this.dgvRubric.Name = "dgvRubric";
-            this.dgvRubric.ReadOnly = true;
-            this.dgvRubric.Size = new System.Drawing.Size(829, 254);
-            this.dgvRubric.TabIndex = 1;
-            // 
-            // View
-            // 
-            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.View.HeaderText = "View";
-            this.View.Image = ((System.Drawing.Image)(resources.GetObject("View.Image")));
-            this.View.Name = "View";
-            this.View.ReadOnly = true;
-            this.View.Width = 36;
-            // 
-            // EditRubirc
-            // 
-            this.EditRubirc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.EditRubirc.HeaderText = "Edit";
-            this.EditRubirc.Image = ((System.Drawing.Image)(resources.GetObject("EditRubirc.Image")));
-            this.EditRubirc.Name = "EditRubirc";
-            this.EditRubirc.ReadOnly = true;
-            this.EditRubirc.Width = 31;
-            // 
-            // DeleteRubric
-            // 
-            this.DeleteRubric.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DeleteRubric.HeaderText = "Delete";
-            this.DeleteRubric.Image = ((System.Drawing.Image)(resources.GetObject("DeleteRubric.Image")));
-            this.DeleteRubric.Name = "DeleteRubric";
-            this.DeleteRubric.ReadOnly = true;
-            this.DeleteRubric.Width = 44;
+            this.dgvSafetyTips.AllowUserToAddRows = false;
+            this.dgvSafetyTips.AllowUserToDeleteRows = false;
+            this.dgvSafetyTips.AllowUserToOrderColumns = true;
+            this.dgvSafetyTips.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSafetyTips.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSafetyTips.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSafetyTips.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvSafetyTips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSafetyTips.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.View});
+            this.tableLayoutPanel6.SetColumnSpan(this.dgvSafetyTips, 2);
+            this.dgvSafetyTips.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSafetyTips.Location = new System.Drawing.Point(3, 161);
+            this.dgvSafetyTips.Name = "dgvSafetyTips";
+            this.dgvSafetyTips.ReadOnly = true;
+            this.dgvSafetyTips.Size = new System.Drawing.Size(829, 254);
+            this.dgvSafetyTips.TabIndex = 1;
             // 
             // tabPageProfile
             // 
@@ -950,6 +873,45 @@
             this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
             this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
             // 
+            // materialMultiLineTextBox1
+            // 
+            this.materialMultiLineTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialMultiLineTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialMultiLineTextBox1.Depth = 0;
+            this.materialMultiLineTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialMultiLineTextBox1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialMultiLineTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialMultiLineTextBox1.Location = new System.Drawing.Point(14, 14);
+            this.materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
+            this.materialMultiLineTextBox1.Size = new System.Drawing.Size(544, 100);
+            this.materialMultiLineTextBox1.TabIndex = 0;
+            this.materialMultiLineTextBox1.Text = "No Safety Tip Selected";
+            // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.View.HeaderText = "View";
+            this.View.Image = ((System.Drawing.Image)(resources.GetObject("View.Image")));
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Width = 36;
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.materialLabel8);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(14, 14);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(207, 130);
+            this.materialCard1.TabIndex = 1;
+            // 
             // frmUserHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,11 +923,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUserHome";
             this.Text = "User Home";
-            this.Load += new System.EventHandler(this.frmUserHome_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.tabPageHome.ResumeLayout(false);
             this.tblHome.ResumeLayout(false);
             this.tblHome.PerformLayout();
+            this.crdmap.ResumeLayout(false);
             this.tabPageRoute.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -986,10 +948,10 @@
             this.materialCard4.PerformLayout();
             this.tabPageSafety.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.materialCard5.ResumeLayout(false);
-            this.materialCard5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRubric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).EndInit();
+            this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1033,19 +995,17 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private MaterialSkin.Controls.MaterialButton btnAddRubric;
-        private MaterialSkin.Controls.MaterialTextBox2 txtRubricDetaills;
-        private MaterialSkin.Controls.MaterialComboBox cbCLOs;
-        private System.Windows.Forms.DataGridView dgvRubric;
-        private System.Windows.Forms.DataGridViewImageColumn View;
-        private System.Windows.Forms.DataGridViewImageColumn EditRubirc;
-        private System.Windows.Forms.DataGridViewImageColumn DeleteRubric;
+        private System.Windows.Forms.DataGridView dgvSafetyTips;
         private System.Windows.Forms.TabPage tabPageProfile;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tblHome;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSwitch swhSendLocation;
         private RoundedButton roundedButton1;
+        private MaterialSkin.Controls.MaterialCard crdmap;
+        private GMap.NET.WindowsForms.GMapControl gMapHome;
         private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
+        private System.Windows.Forms.DataGridViewImageColumn View;
     }
 }

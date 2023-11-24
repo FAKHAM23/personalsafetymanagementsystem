@@ -11,12 +11,23 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using WomanSafety.UI;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using System.Net.Http;
+using GMap.NET.WindowsForms.Markers;
+using Newtonsoft.Json.Linq;
+
 
 namespace WomanSafety.UI
 {
     public partial class frmUserHome : MaterialForm
     {
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
+        // Default location coordinates
+        double defaultLatitude = 31.5497; // Lahore's latitude
+        double defaultLongitude = 74.3436; // Lahore's longitude
+
         public frmUserHome()
         {
             InitializeComponent();
@@ -25,43 +36,94 @@ namespace WomanSafety.UI
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
-            /*RoundedButton rb = new RoundedButton();
-            rb.Text = "Rounded Button";
-            rb.Height = 46;
-            rb.Width = 139;
-            rb.Location = new Point(566, 154);
-            rb.rdus = 30;
-            rb.BackColor = Color.IndianRed;
-            rb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            rb.FlatAppearance.BorderColor = Color.Black;
-            rb.FlatAppearance.BorderSize = 1;
-            //tblHome.Controls.Add(rb, 1, 0);
-            //tblHome.SetRowSpan(rb, 2); 
-            rb.Dock = DockStyle.Fill;
-            rb.BringToFront();
 
-            this.Controls.Add(rb);*/
+            // Set up the Google Maps control
+            gMapHome.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+
+            // Set the API key
+            GoogleMapProvider.Instance.ApiKey = "AIzaSyDEhr2LJnyoNt6wO5JUraz27F04PowVhzQ";
+
+            // Create and configure the GMap control
+            gMapHome.Dock = DockStyle.Fill;
+            gMapHome.Position = new PointLatLng(defaultLatitude, defaultLongitude);
+            gMapHome.Zoom = 10;
+            gMapHome.MinZoom = 1;
+            gMapHome.MaxZoom = 18;
+            gMapHome.CanDragMap = true;
+            gMapHome.AutoScroll = true;
+
+            GetAndPrintLiveLocation();
+            // Set the default location when the form is loaded
+            //SetDefaultLocation();
         }
 
-        private void frmUserHome_Load(object sender, EventArgs e)
+        private async void GetAndPrintLiveLocation()
+        {
+            // Get live location
+            PointLatLng liveLocation = await GetLiveLocationAsync();
+
+            // Print the location to the console or any other desired output
+            Console.WriteLine($"Live Location - Latitude: {liveLocation.Lat}, Longitude: {liveLocation.Lng}");
+        }
+
+
+
+
+        private async Task<PointLatLng> GetLiveLocationAsync()
+        {
+            try
+            {
+                // Use the Geolocation API to get the live location
+                using (HttpClient client = new HttpClient())
+                {
+                    string apiKey = "AIzaSyDEhr2LJnyoNt6wO5JUraz27F04PowVhzQ";
+                    string response = await client.GetStringAsync($"https://www.googleapis.com/geolocation/v1/geolocate?key={apiKey}");
+                    JObject jsonResponse = JObject.Parse(response);
+                    double latitude = jsonResponse["location"]["lat"].Value<double>();
+                    double longitude = jsonResponse["location"]["lng"].Value<double>();
+
+                    return new PointLatLng(latitude, longitude);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., no internet connection or API request failure
+                Console.WriteLine($"Error getting live location: {ex.Message}");
+                return new PointLatLng(defaultLatitude, defaultLongitude);
+            }
+        }
+
+        private PointLatLng GetDroppedPinLocation()
+        {
+            // Replace this with your actual implementation to get the dropped pin location
+            // For example, you can use a default location or the last known location
+            return new PointLatLng(232, 234);
+        }
+
+        private void UpdateMap(PointLatLng location)
+        {
+            // Update the map position
+            gMapHome.Position = location;
+        }
+
+        private void SetDefaultLocation()
+        {
+            // Set the default location when the form is loaded
+            PointLatLng defaultLocation = GetDroppedPinLocation();
+            UpdateMap(defaultLocation);
+        }
+
+        private void swhSendLocation_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void materialLabel3_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void tabPageHome_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void materialCard1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 
 
