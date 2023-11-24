@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserHome));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
             this.tblHome = new System.Windows.Forms.TableLayoutPanel();
@@ -78,9 +78,10 @@
             this.dgvSafetyTips = new System.Windows.Forms.DataGridView();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.View = new System.Windows.Forms.DataGridViewImageColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.txtSafetyTip = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -339,9 +340,9 @@
             this.dgvStudent.MultiSelect = false;
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudent.Size = new System.Drawing.Size(803, 292);
             this.dgvStudent.TabIndex = 3;
             // 
@@ -787,11 +788,12 @@
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
+            this.materialLabel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
             this.materialLabel8.HighEmphasis = true;
-            this.materialLabel8.Location = new System.Drawing.Point(19, 14);
-            this.materialLabel8.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.materialLabel8.Location = new System.Drawing.Point(14, 14);
+            this.materialLabel8.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(119, 29);
@@ -804,7 +806,7 @@
             // materialCard5
             // 
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.materialMultiLineTextBox1);
+            this.materialCard5.Controls.Add(this.txtSafetyTip);
             this.materialCard5.Depth = 0;
             this.materialCard5.Dock = System.Windows.Forms.DockStyle.Top;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -873,21 +875,6 @@
             this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
             this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
             // 
-            // materialMultiLineTextBox1
-            // 
-            this.materialMultiLineTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialMultiLineTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialMultiLineTextBox1.Depth = 0;
-            this.materialMultiLineTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialMultiLineTextBox1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialMultiLineTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialMultiLineTextBox1.Location = new System.Drawing.Point(14, 14);
-            this.materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
-            this.materialMultiLineTextBox1.Size = new System.Drawing.Size(544, 100);
-            this.materialMultiLineTextBox1.TabIndex = 0;
-            this.materialMultiLineTextBox1.Text = "No Safety Tip Selected";
-            // 
             // View
             // 
             this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -900,17 +887,47 @@
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.richTextBox1);
             this.materialCard1.Controls.Add(this.materialLabel8);
             this.materialCard1.Depth = 0;
             this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(14, 14);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Location = new System.Drawing.Point(9, 9);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(9);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(207, 130);
+            this.materialCard1.Size = new System.Drawing.Size(217, 140);
             this.materialCard1.TabIndex = 1;
+            // 
+            // txtSafetyTip
+            // 
+            this.txtSafetyTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtSafetyTip.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSafetyTip.Depth = 0;
+            this.txtSafetyTip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSafetyTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSafetyTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtSafetyTip.Location = new System.Drawing.Point(14, 14);
+            this.txtSafetyTip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSafetyTip.Name = "txtSafetyTip";
+            this.txtSafetyTip.ReadOnly = true;
+            this.txtSafetyTip.Size = new System.Drawing.Size(544, 100);
+            this.txtSafetyTip.TabIndex = 0;
+            this.txtSafetyTip.Text = "No Safety Tip Selected";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(14, 43);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(10);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(189, 83);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = "No Safety Tip Selected";
             // 
             // frmUserHome
             // 
@@ -1005,7 +1022,8 @@
         private MaterialSkin.Controls.MaterialCard crdmap;
         private GMap.NET.WindowsForms.GMapControl gMapHome;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
         private System.Windows.Forms.DataGridViewImageColumn View;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox txtSafetyTip;
     }
 }
