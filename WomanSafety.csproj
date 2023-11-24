@@ -99,6 +99,11 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="DL\DatabaseORM.cs" />
     <Compile Include="DL\UserDL.cs" />
+    <Compile Include="PersonalSafetyDatabaseDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonalSafetyDatabaseDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +144,17 @@
       <DependentUpon>frmUserHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="PersonalSafetyDatabaseDataSet2.xsc">
+      <DependentUpon>PersonalSafetyDatabaseDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PersonalSafetyDatabaseDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonalSafetyDatabaseDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PersonalSafetyDatabaseDataSet2.xss">
+      <DependentUpon>PersonalSafetyDatabaseDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,6 +174,8 @@
   <ItemGroup>
     <None Include="Resources\image 14.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\9.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

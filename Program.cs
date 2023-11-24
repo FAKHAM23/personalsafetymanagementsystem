@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WomanSafety.UI;
 
 namespace WomanSafety
 {
@@ -16,7 +17,7 @@ namespace WomanSafety
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignupPage());
+            Application.Run(new frmUserHome());
         }
     }
 }

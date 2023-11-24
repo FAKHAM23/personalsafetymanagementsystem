@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserHome));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
+            this.tblHome = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.swhSendLocation = new MaterialSkin.Controls.MaterialSwitch();
+            this.roundedButton1 = new WomanSafety.UI.RoundedButton();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.tabPageRoute = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -79,10 +83,9 @@
             this.DeleteRubric = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
+            this.tblHome.SuspendLayout();
             this.tabPageRoute.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
@@ -124,9 +127,7 @@
             // tabPageHome
             // 
             this.tabPageHome.BackColor = System.Drawing.Color.White;
-            this.tabPageHome.Controls.Add(this.materialButton1);
-            this.tabPageHome.Controls.Add(this.materialMultiLineTextBox1);
-            this.tabPageHome.Controls.Add(this.materialLabel1);
+            this.tabPageHome.Controls.Add(this.tblHome);
             this.tabPageHome.ImageKey = "icons8-home-page-32.png";
             this.tabPageHome.Location = new System.Drawing.Point(4, 39);
             this.tabPageHome.Name = "tabPageHome";
@@ -134,6 +135,25 @@
             this.tabPageHome.Size = new System.Drawing.Size(835, 418);
             this.tabPageHome.TabIndex = 0;
             this.tabPageHome.Text = "Home";
+            this.tabPageHome.Click += new System.EventHandler(this.tabPageHome_Click);
+            // 
+            // tblHome
+            // 
+            this.tblHome.ColumnCount = 2;
+            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.33293F));
+            this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.66707F));
+            this.tblHome.Controls.Add(this.roundedButton1, 1, 1);
+            this.tblHome.Controls.Add(this.materialLabel1, 0, 0);
+            this.tblHome.Controls.Add(this.swhSendLocation, 1, 0);
+            this.tblHome.Controls.Add(this.materialCard1, 0, 1);
+            this.tblHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblHome.Location = new System.Drawing.Point(3, 3);
+            this.tblHome.Name = "tblHome";
+            this.tblHome.RowCount = 2;
+            this.tblHome.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblHome.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblHome.Size = new System.Drawing.Size(829, 412);
+            this.tblHome.TabIndex = 1;
             // 
             // materialLabel1
             // 
@@ -142,16 +162,62 @@
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
             this.materialLabel1.HighEmphasis = true;
-            this.materialLabel1.Location = new System.Drawing.Point(27, 15);
+            this.materialLabel1.Location = new System.Drawing.Point(5, 0);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(222, 41);
-            this.materialLabel1.TabIndex = 1;
+            this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Woman Safety";
             this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.materialLabel1.UseAccent = true;
             this.materialLabel1.UseMnemonic = false;
+            // 
+            // swhSendLocation
+            // 
+            this.swhSendLocation.AutoSize = true;
+            this.swhSendLocation.Checked = true;
+            this.swhSendLocation.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.swhSendLocation.Depth = 0;
+            this.swhSendLocation.Location = new System.Drawing.Point(467, 0);
+            this.swhSendLocation.Margin = new System.Windows.Forms.Padding(0);
+            this.swhSendLocation.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.swhSendLocation.MouseState = MaterialSkin.MouseState.HOVER;
+            this.swhSendLocation.Name = "swhSendLocation";
+            this.swhSendLocation.Ripple = true;
+            this.swhSendLocation.Size = new System.Drawing.Size(160, 37);
+            this.swhSendLocation.TabIndex = 7;
+            this.swhSendLocation.Text = "Send Location";
+            this.swhSendLocation.UseVisualStyleBackColor = true;
+            // 
+            // roundedButton1
+            // 
+            this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.roundedButton1.BackColor = System.Drawing.Color.Red;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton1.Location = new System.Drawing.Point(555, 133);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(185, 186);
+            this.roundedButton1.TabIndex = 8;
+            this.roundedButton1.Text = "Feeling Unsafe Click Here!";
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Depth = 0;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(14, 55);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(439, 343);
+            this.materialCard1.TabIndex = 9;
+            this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
             // 
             // tabPageRoute
             // 
@@ -245,9 +311,9 @@
             this.dgvStudent.MultiSelect = false;
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudent.Size = new System.Drawing.Size(803, 292);
             this.dgvStudent.TabIndex = 3;
             // 
@@ -477,7 +543,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.97222F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02778F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel4.Controls.Add(this.txtCLO, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAddCLO, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
@@ -503,7 +569,7 @@
             this.txtCLO.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCLO.Multiline = false;
             this.txtCLO.Name = "txtCLO";
-            this.txtCLO.Size = new System.Drawing.Size(252, 50);
+            this.txtCLO.Size = new System.Drawing.Size(247, 50);
             this.txtCLO.TabIndex = 1;
             this.txtCLO.Text = "";
             this.txtCLO.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtCLO.TrailingIcon")));
@@ -516,7 +582,7 @@
             this.btnAddCLO.Depth = 0;
             this.btnAddCLO.HighEmphasis = true;
             this.btnAddCLO.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddCLO.Icon")));
-            this.btnAddCLO.Location = new System.Drawing.Point(309, 6);
+            this.btnAddCLO.Location = new System.Drawing.Point(302, 6);
             this.btnAddCLO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddCLO.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCLO.Name = "btnAddCLO";
@@ -884,52 +950,22 @@
             this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
             this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
             // 
-            // materialMultiLineTextBox1
-            // 
-            this.materialMultiLineTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialMultiLineTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialMultiLineTextBox1.Depth = 0;
-            this.materialMultiLineTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.materialMultiLineTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialMultiLineTextBox1.Location = new System.Drawing.Point(34, 69);
-            this.materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
-            this.materialMultiLineTextBox1.Size = new System.Drawing.Size(472, 258);
-            this.materialMultiLineTextBox1.TabIndex = 3;
-            this.materialMultiLineTextBox1.Text = resources.GetString("materialMultiLineTextBox1.Text");
-            // 
-            // materialButton1
-            // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(566, 154);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(227, 36);
-            this.materialButton1.TabIndex = 4;
-            this.materialButton1.Text = "Feeling Unsafe Click Here!";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = true;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            // 
             // frmUserHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 528);
             this.Controls.Add(this.materialTabControl1);
+            this.DrawerShowIconsWhenHidden = true;
+            this.DrawerTabControl = this.materialTabControl1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUserHome";
             this.Text = "User Home";
             this.Load += new System.EventHandler(this.frmUserHome_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.tabPageHome.ResumeLayout(false);
-            this.tabPageHome.PerformLayout();
+            this.tblHome.ResumeLayout(false);
+            this.tblHome.PerformLayout();
             this.tabPageRoute.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -961,7 +997,6 @@
         #endregion
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPageHome;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.TabPage tabPageRoute;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
@@ -1007,7 +1042,10 @@
         private System.Windows.Forms.DataGridViewImageColumn DeleteRubric;
         private System.Windows.Forms.TabPage tabPageProfile;
         private System.Windows.Forms.ImageList imageList1;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
+        private System.Windows.Forms.TableLayoutPanel tblHome;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialSwitch swhSendLocation;
+        private RoundedButton roundedButton1;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }

@@ -44,5 +44,16 @@ namespace WomanSafety.Properties {
                 return ((string)(this["PersonalSafetyDatabaseConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FAHAD_NIAZI;Initial Catalog=PersonalSafetyDatabase;Integrated Securit" +
+            "y=True")]
+        public string PersonalSafetyDatabaseConnectionString2 {
+            get {
+                return ((string)(this["PersonalSafetyDatabaseConnectionString2"]));
+            }
+        }
     }
 }

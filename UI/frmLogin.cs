@@ -63,7 +63,7 @@ namespace WomanSafety
             //frmLogin LoginPage = new frmLogin();
             this.Hide();
 
-            if (RoleId == 2)
+            if (RoleId == 4)
             {
                 // Show the frmUserHome form
                 using (frmUserHome userHomeForm = new frmUserHome())
@@ -72,7 +72,7 @@ namespace WomanSafety
                     Console.WriteLine("User Found!");
                 }
             }
-            else if (RoleId == 1)
+            else if (RoleId == 3)
             {
                 Console.WriteLine("Admin Found!");
             }
