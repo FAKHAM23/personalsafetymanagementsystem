@@ -40,35 +40,9 @@ namespace WomanSafety.BL
             UserName = userName;
             Password = password;
         }
-        public void AddUserToDatabase(string userName, string password, int roleID)
-        {
-            try
-            {
-                DateTime createdAt = DateTime.Now;
-                DateTime updatedAt = DateTime.Now;
+        
 
-                var con = Configuration.getInstance().getConnection();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO [User] ([UserName], [Password], [RoleID], [CreatedAt], [UpdatedAt]) VALUES (@Username, @Password, @RoleID, @CreatedAt, @UpdatedAt)", con))
-                {
-                    cmd.Parameters.AddWithValue("@Username", userName);
-                    cmd.Parameters.AddWithValue("@Password", password);
-                    cmd.Parameters.AddWithValue("@RoleID", roleID);
-                    cmd.Parameters.AddWithValue("@CreatedAt", createdAt);
-                    cmd.Parameters.AddWithValue("@UpdatedAt", updatedAt);
 
-                    cmd.ExecuteNonQuery();
-                }
-                
-
-                Console.WriteLine("User added to the database successfully.");
-                MessageBox.Show("New User Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error adding user to the database: {ex.Message}");
-                MessageBox.Show($"Error inserting user into the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
     }
 

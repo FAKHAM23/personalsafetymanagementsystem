@@ -131,9 +131,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\PasswordHasher.cs" />
+    <Compile Include="BL\SafetyTipBL.cs" />
     <Compile Include="BL\UserBL.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="DL\DatabaseORM.cs" />
+    <Compile Include="DL\SafetyTipDL.cs" />
     <Compile Include="DL\UserDL.cs" />
     <Compile Include="PersonalSafetyDatabaseDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>

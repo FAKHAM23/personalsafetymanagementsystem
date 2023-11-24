@@ -119,8 +119,59 @@ namespace WomanSafety.UI
 
         }
 
+        private void frmUserHome_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.SafetyTips' table. You can move, or remove it, as needed.
+            this.safetyTipsTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.SafetyTips);
+
+        }
+
+        private void dgvSafetyTips_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Check if the clicked cell is in the "View" column
+                if (e.ColumnIndex >= 0 && dgvSafetyTips.Columns[e.ColumnIndex].Name == "View")
+                {
+                    // Check if a valid row is clicked (not the header)
+                    if (e.RowIndex >= 0 && dgvSafetyTips.Rows[e.RowIndex].Cells.Count > 1)
+                    {
+                        // Find the indexes of the "Title" and "Description" columns
+                        int titleColumnIndex = dgvSafetyTips.Columns["Title"]?.Index ?? -1;
+                        int descriptionColumnIndex = dgvSafetyTips.Columns["Description"]?.Index ?? -1;
+
+                        // Check if the columns were found
+                        if (titleColumnIndex != -1 && descriptionColumnIndex != -1)
+                        {
+                            string title = dgvSafetyTips.Rows[e.RowIndex].Cells[titleColumnIndex].Value?.ToString() ?? string.Empty;
+                            string description = dgvSafetyTips.Rows[e.RowIndex].Cells[descriptionColumnIndex].Value?.ToString() ?? string.Empty;
+
+                            // Split the description by newline and add numbering
+                            string[] descriptionLines = description.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                            StringBuilder formattedDescription = new StringBuilder();
+
+                            for (int i = 0; i < descriptionLines.Length; i++)
+                            {
+                                // Trim leading whitespace and add numbering
+                                formattedDescription.AppendLine($"{descriptionLines[i].TrimStart()}");
+                            }
+                            txtSafetyTitle.Text = title;
+                            txtSafetyTitle.Font = new Font(txtSafetyTitle.Font.FontFamily, 16, FontStyle.Bold);
+                            // Set the TextBox values, starting from a new line
+                            txtSafetyTip.Text = $"{title}{Environment.NewLine}{formattedDescription}";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions here (e.g., log or display an error message)
+                Console.WriteLine($"Error in CellClick event: {ex.Message}");
+            }
 
 
+
+        }
 
 
 
