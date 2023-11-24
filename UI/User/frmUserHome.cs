@@ -43,26 +43,44 @@ namespace WomanSafety.UI
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
+            InitializeGmap(gMapHome);
+            InitializeGmap(gMapRoute);
 
+            // Create a PictureBox for the icon
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = Properties.Resources.icons8_forward_arrow_32 ; // Replace with your icon resource
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+
+            // Add the button and icon to the FlowLayoutPanel
+            flowLayoutPanel.Controls.Add(btnLetsGo);
+            flowLayoutPanel.Controls.Add(pictureBox);
+
+            // Add the FlowLayoutPanel to your form
+            Controls.Add(flowLayoutPanel);
+
+            GetAndPrintLiveLocation();
+            // Set the default location when the form is loaded
+            //SetDefaultLocation();
+        }
+
+        private void InitializeGmap(GMapControl gMap1)
+        {
             // Set up the Google Maps control
-            gMapHome.MapProvider = GoogleMapProvider.Instance;
+            gMap1.MapProvider = GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
 
             // Set the API key
             GoogleMapProvider.Instance.ApiKey = "AIzaSyDEhr2LJnyoNt6wO5JUraz27F04PowVhzQ";
 
             // Create and configure the GMap control
-            gMapHome.Dock = DockStyle.Fill;
-            gMapHome.Position = new PointLatLng(defaultLatitude, defaultLongitude);
-            gMapHome.Zoom = 10;
-            gMapHome.MinZoom = 1;
-            gMapHome.MaxZoom = 18;
-            gMapHome.CanDragMap = true;
-            gMapHome.AutoScroll = true;
+            gMap1.Dock = DockStyle.Fill;
+            gMap1.Position = new PointLatLng(defaultLatitude, defaultLongitude);
+            gMap1.Zoom = 10;
+            gMap1.MinZoom = 1;
+            gMap1.MaxZoom = 18;
+            gMap1.CanDragMap = true;
+            gMap1.AutoScroll = true;
 
-            GetAndPrintLiveLocation();
-            // Set the default location when the form is loaded
-            //SetDefaultLocation();
         }
 
         private async void GetAndPrintLiveLocation()

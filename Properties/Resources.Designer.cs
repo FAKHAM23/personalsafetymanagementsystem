@@ -73,6 +73,16 @@ namespace WomanSafety.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_forward_arrow_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-forward-arrow-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_14 {
             get {
                 object obj = ResourceManager.GetObject("image 14", resourceCulture);
