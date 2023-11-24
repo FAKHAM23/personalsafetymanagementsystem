@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserHome));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
             this.tblHome = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedButton1 = new WomanSafety.UI.RoundedButton();
+            this.btnUnsafe = new WomanSafety.UI.RoundedButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.swhSendLocation = new MaterialSkin.Controls.MaterialSwitch();
             this.crdmap = new MaterialSkin.Controls.MaterialCard();
@@ -79,11 +79,6 @@
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.txtSafetyTip = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.dgvSafetyTips = new System.Windows.Forms.DataGridView();
-            this.safetyTipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
-            this.tabPageProfile = new System.Windows.Forms.TabPage();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
             this.View = new System.Windows.Forms.DataGridViewImageColumn();
             this.tipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +86,11 @@
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.safetyTipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
+            this.tabPageProfile = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -153,7 +153,7 @@
             this.tblHome.ColumnCount = 2;
             this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.8275F));
             this.tblHome.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1725F));
-            this.tblHome.Controls.Add(this.roundedButton1, 1, 1);
+            this.tblHome.Controls.Add(this.btnUnsafe, 1, 1);
             this.tblHome.Controls.Add(this.materialLabel1, 0, 0);
             this.tblHome.Controls.Add(this.swhSendLocation, 1, 0);
             this.tblHome.Controls.Add(this.crdmap, 0, 1);
@@ -166,19 +166,20 @@
             this.tblHome.Size = new System.Drawing.Size(829, 412);
             this.tblHome.TabIndex = 1;
             // 
-            // roundedButton1
+            // btnUnsafe
             // 
-            this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.roundedButton1.BackColor = System.Drawing.Color.Red;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButton1.Location = new System.Drawing.Point(598, 133);
-            this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(185, 186);
-            this.roundedButton1.TabIndex = 8;
-            this.roundedButton1.Text = "Feeling Unsafe Click Here!";
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.btnUnsafe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUnsafe.BackColor = System.Drawing.Color.Red;
+            this.btnUnsafe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnsafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnsafe.Location = new System.Drawing.Point(598, 133);
+            this.btnUnsafe.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUnsafe.Name = "btnUnsafe";
+            this.btnUnsafe.Size = new System.Drawing.Size(185, 186);
+            this.btnUnsafe.TabIndex = 8;
+            this.btnUnsafe.Text = "Feeling Unsafe Click Here!";
+            this.btnUnsafe.UseVisualStyleBackColor = false;
+            this.btnUnsafe.Click += new System.EventHandler(this.btnUnsafe_Click);
             // 
             // materialLabel1
             // 
@@ -351,9 +352,9 @@
             this.dgvStudent.MultiSelect = false;
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudent.Size = new System.Drawing.Size(803, 292);
             this.dgvStudent.TabIndex = 3;
             // 
@@ -583,7 +584,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.97222F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02778F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel4.Controls.Add(this.txtCLO, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAddCLO, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
@@ -609,7 +610,7 @@
             this.txtCLO.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCLO.Multiline = false;
             this.txtCLO.Name = "txtCLO";
-            this.txtCLO.Size = new System.Drawing.Size(243, 50);
+            this.txtCLO.Size = new System.Drawing.Size(242, 50);
             this.txtCLO.TabIndex = 1;
             this.txtCLO.Text = "";
             this.txtCLO.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtCLO.TrailingIcon")));
@@ -622,7 +623,7 @@
             this.btnAddCLO.Depth = 0;
             this.btnAddCLO.HighEmphasis = true;
             this.btnAddCLO.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddCLO.Icon")));
-            this.btnAddCLO.Location = new System.Drawing.Point(295, 6);
+            this.btnAddCLO.Location = new System.Drawing.Point(294, 6);
             this.btnAddCLO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddCLO.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCLO.Name = "btnAddCLO";
@@ -903,57 +904,6 @@
             this.dgvSafetyTips.TabIndex = 1;
             this.dgvSafetyTips.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSafetyTips_CellClick);
             // 
-            // safetyTipsBindingSource
-            // 
-            this.safetyTipsBindingSource.DataMember = "SafetyTips";
-            this.safetyTipsBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
-            // 
-            // personalSafetyDatabaseDataSet2
-            // 
-            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
-            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPageProfile
-            // 
-            this.tabPageProfile.ImageKey = "icons8-admin-settings-male-32.png";
-            this.tabPageProfile.Location = new System.Drawing.Point(4, 39);
-            this.tabPageProfile.Name = "tabPageProfile";
-            this.tabPageProfile.Size = new System.Drawing.Size(835, 418);
-            this.tabPageProfile.TabIndex = 5;
-            this.tabPageProfile.Text = "Profile";
-            this.tabPageProfile.UseVisualStyleBackColor = true;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "icons8-attendance-32.png");
-            this.imageList1.Images.SetKeyName(1, "icons8-home-page-32.png");
-            this.imageList1.Images.SetKeyName(2, "icons8-menu-32.png");
-            this.imageList1.Images.SetKeyName(3, "icons8-open-book-32.png");
-            this.imageList1.Images.SetKeyName(4, "icons8-pass-fail-32.png");
-            this.imageList1.Images.SetKeyName(5, "icons8-plus-32.png");
-            this.imageList1.Images.SetKeyName(6, "icons8-settings.gif");
-            this.imageList1.Images.SetKeyName(7, "icons8-user-account-32.png");
-            this.imageList1.Images.SetKeyName(8, "icons8-attendance-32.png");
-            this.imageList1.Images.SetKeyName(9, "icons8-active-directory-32.png");
-            this.imageList1.Images.SetKeyName(10, "icons8-delete-32.png");
-            this.imageList1.Images.SetKeyName(11, "icons8-edit-32.png");
-            this.imageList1.Images.SetKeyName(12, "icons8-edit-property-32.png");
-            this.imageList1.Images.SetKeyName(13, "icons8-no-connection-32.png");
-            this.imageList1.Images.SetKeyName(14, "icons8-scorecard-32.png");
-            this.imageList1.Images.SetKeyName(15, "icons8-certificate-32.png");
-            this.imageList1.Images.SetKeyName(16, "icons8-admin-settings-male-32.png");
-            this.imageList1.Images.SetKeyName(17, "icons8-contacts-32.png");
-            this.imageList1.Images.SetKeyName(18, "icons8-route-32.png");
-            this.imageList1.Images.SetKeyName(19, "icons8-tips-32.png");
-            this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
-            this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
-            // 
-            // safetyTipsTableAdapter
-            // 
-            this.safetyTipsTableAdapter.ClearBeforeFill = true;
-            // 
             // View
             // 
             this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1004,6 +954,57 @@
             this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
             this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
             this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // safetyTipsBindingSource
+            // 
+            this.safetyTipsBindingSource.DataMember = "SafetyTips";
+            this.safetyTipsBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
+            // 
+            // personalSafetyDatabaseDataSet2
+            // 
+            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
+            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPageProfile
+            // 
+            this.tabPageProfile.ImageKey = "icons8-admin-settings-male-32.png";
+            this.tabPageProfile.Location = new System.Drawing.Point(4, 39);
+            this.tabPageProfile.Name = "tabPageProfile";
+            this.tabPageProfile.Size = new System.Drawing.Size(835, 418);
+            this.tabPageProfile.TabIndex = 5;
+            this.tabPageProfile.Text = "Profile";
+            this.tabPageProfile.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "icons8-attendance-32.png");
+            this.imageList1.Images.SetKeyName(1, "icons8-home-page-32.png");
+            this.imageList1.Images.SetKeyName(2, "icons8-menu-32.png");
+            this.imageList1.Images.SetKeyName(3, "icons8-open-book-32.png");
+            this.imageList1.Images.SetKeyName(4, "icons8-pass-fail-32.png");
+            this.imageList1.Images.SetKeyName(5, "icons8-plus-32.png");
+            this.imageList1.Images.SetKeyName(6, "icons8-settings.gif");
+            this.imageList1.Images.SetKeyName(7, "icons8-user-account-32.png");
+            this.imageList1.Images.SetKeyName(8, "icons8-attendance-32.png");
+            this.imageList1.Images.SetKeyName(9, "icons8-active-directory-32.png");
+            this.imageList1.Images.SetKeyName(10, "icons8-delete-32.png");
+            this.imageList1.Images.SetKeyName(11, "icons8-edit-32.png");
+            this.imageList1.Images.SetKeyName(12, "icons8-edit-property-32.png");
+            this.imageList1.Images.SetKeyName(13, "icons8-no-connection-32.png");
+            this.imageList1.Images.SetKeyName(14, "icons8-scorecard-32.png");
+            this.imageList1.Images.SetKeyName(15, "icons8-certificate-32.png");
+            this.imageList1.Images.SetKeyName(16, "icons8-admin-settings-male-32.png");
+            this.imageList1.Images.SetKeyName(17, "icons8-contacts-32.png");
+            this.imageList1.Images.SetKeyName(18, "icons8-route-32.png");
+            this.imageList1.Images.SetKeyName(19, "icons8-tips-32.png");
+            this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
+            this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
+            // 
+            // safetyTipsTableAdapter
+            // 
+            this.safetyTipsTableAdapter.ClearBeforeFill = true;
             // 
             // frmUserHome
             // 
@@ -1097,7 +1098,7 @@
         private System.Windows.Forms.TableLayoutPanel tblHome;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSwitch swhSendLocation;
-        private RoundedButton roundedButton1;
+        private RoundedButton btnUnsafe;
         private MaterialSkin.Controls.MaterialCard crdmap;
         private GMap.NET.WindowsForms.GMapControl gMapHome;
         private MaterialSkin.Controls.MaterialCard materialCard1;

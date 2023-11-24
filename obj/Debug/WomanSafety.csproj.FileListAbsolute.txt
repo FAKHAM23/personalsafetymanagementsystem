@@ -71,3 +71,10 @@ D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagement
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.Data.SqlClient.xml
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.Data.SQLite.xml
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.Security.Principal.Windows.xml
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Twilio.dll
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Twilio.xml

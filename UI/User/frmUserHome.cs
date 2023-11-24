@@ -11,12 +11,17 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using WomanSafety.UI;
+using WomanSafety.BL;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using System.Net.Http;
 using GMap.NET.WindowsForms.Markers;
 using Newtonsoft.Json.Linq;
+
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 
 namespace WomanSafety.UI
@@ -27,6 +32,8 @@ namespace WomanSafety.UI
         // Default location coordinates
         double defaultLatitude = 31.5497; // Lahore's latitude
         double defaultLongitude = 74.3436; // Lahore's longitude
+
+        public UserBL LoggedInUser { get; set; }
 
         public frmUserHome()
         {
@@ -173,6 +180,41 @@ namespace WomanSafety.UI
 
         }
 
+        private async void btnUnsafe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string accountSid = "ACb710e8dba2ebaaa3d6b4d0725fa1eb2e";
+                string authToken = "bca485757472fdbb70d3663728dd6135";
+
+                TwilioClient.Init(accountSid, authToken);
+
+                // Get the live location
+                PointLatLng liveLocation = await GetLiveLocationAsync();
+
+                // Compose the message
+                /*string messageBody = $"{LoggedInUser.UserName} is in danger at location: {liveLocation.Lat}, {liveLocation.Lng}";*/
+                string messageBody = $"Ali is in danger at location: {liveLocation.Lat}, {liveLocation.Lng}";
+
+                // The WhatsApp number to send the message to (replace with your target number)
+                string toPhoneNumber = "+923448657308";  // Replace with the target WhatsApp number
+
+                // Send the WhatsApp message
+                var message = MessageResource.Create(
+                    body: messageBody,
+                    from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),  // Twilio sandbox number
+                    to: new Twilio.Types.PhoneNumber($"whatsapp:{toPhoneNumber}")
+                );
+
+                MessageBox.Show("WhatsApp message sent successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending WhatsApp message: {ex.Message}");
+            }
+
+
+        }
 
 
     }

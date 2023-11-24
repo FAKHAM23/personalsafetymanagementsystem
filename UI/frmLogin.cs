@@ -68,6 +68,7 @@ namespace WomanSafety
                 // Show the frmUserHome form
                 using (frmUserHome userHomeForm = new frmUserHome())
                 {
+                    userHomeForm.LoggedInUser = UserToFind;
                     userHomeForm.ShowDialog();
                     Console.WriteLine("User Found!");
                 }
