@@ -15,10 +15,20 @@ namespace WomanSafety.BL
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        // Constructors (if needed)
 
-        // Default constructor
-        public ReportBL(int userID, int locationID, string feedbackText, DateTime createdAt, DateTime updatedAt)
+        public ReportBL()
+        {
+
+        }
+        public ReportBL(int reportID, int userID, string feedbackText, DateTime createdAt, DateTime updatedAt)
+        {
+            ReportID = reportID;
+            UserID = userID;
+            FeedbackText = feedbackText;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
+        }
+        public ReportBL(int userID, int? locationID, string feedbackText, DateTime createdAt, DateTime updatedAt)
         {
             UserID = userID;
             LocationID = locationID;
@@ -28,7 +38,7 @@ namespace WomanSafety.BL
         }
 
         // Parameterized constructor
-        public ReportBL(int reportID, int userID, int locationID, string feedbackText, DateTime createdAt, DateTime updatedAt)
+        public ReportBL(int reportID, int userID, int? locationID, string feedbackText, DateTime createdAt, DateTime updatedAt)
         {
             ReportID = reportID;
             UserID = userID;

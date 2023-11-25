@@ -40,7 +40,7 @@ namespace WomanSafety.UI
 
 
         // Create an Temporary instance 
-        public UserBL LoggedInUser = new UserBL(1, "Hajra", "11112222", 4);
+        public UserBL LoggedInUser = new UserBL(2, "Hajra", "11112222", 4);
 
 
 
@@ -52,15 +52,23 @@ namespace WomanSafety.UI
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
+            /*materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);*/
             InitializeGmap(gMapHome);
             InitializeGmap(gMapRoute);
-
+            
+            
+            //ReportDL.PopulateReportsByUser(LoggedInUser, dgvReport);
             //GetAndPrintLiveLocation();
             // Set the default location when the form is loaded
             //SetDefaultLocation();
         }
+        private void frmUserHome_Load(object sender, EventArgs e)
+        {
+            DataTable reportsDataTable = ReportDL.GetReportsByUser(LoggedInUser);
 
+            dgvReport.DataSource = reportsDataTable;
+
+        }
         private void InitializeGmap(GMapControl gMap1)
         {
             // Set up the Google Maps control
@@ -157,12 +165,7 @@ namespace WomanSafety.UI
 
         }
 
-        private void frmUserHome_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.SafetyTips' table. You can move, or remove it, as needed.
-            this.safetyTipsTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.SafetyTips);
-
-        }
+        
 
         private void dgvSafetyTips_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -285,8 +288,66 @@ namespace WomanSafety.UI
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //string ReportInfo = txtUserReport.Text();
-            //ReportBL NewReport = new ReportBL(LoggedInUser.UserID,null);
+            try
+            {
+                int? LocationId = null;
+                string feedbackText = txtUserReport.Text;
+                ReportBL NewReport = new ReportBL(LoggedInUser.UserID, LocationId, feedbackText, DateTime.Now, DateTime.Now);
+                ReportDL.AddReport(NewReport, LoggedInUser);
+                //MessageBox.Show("Report Added!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No Report Added!");
+                MessageBox.Show($"Error sending Report: {ex.Message}");
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "btnReport ERROR",
+                LoggedInUser.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                LoggedInUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
+            }
+            //ReportDL.PopulateReportsByUser(LoggedInUser, dgvReport);
+        }
+
+        private void materialLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoOrangeTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoOrangeTheme.Checked)
+                materialSkinManager.ColorScheme = new ColorScheme(Primary.Orange800, Primary.Orange900, Primary.Orange500, Accent.Orange200, TextShade.WHITE);
+        }
+
+        private void rdoGreenTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoGreenTheme.Checked)
+                materialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Green900, Primary.Green500, Accent.Green200, TextShade.WHITE);
+        }
+
+        private void rdoBlueTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoBlueTheme.Checked)
+                materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.Blue200, TextShade.WHITE);
+        }
+
+        private void swhTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (swhTheme.Checked)
+                materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            else
+                materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
         }
     }
 

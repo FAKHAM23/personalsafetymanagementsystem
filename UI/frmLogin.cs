@@ -49,66 +49,72 @@ namespace WomanSafety
         {
             UserBL UserToFind= null;
             bool UserLoggedIn = false;
-            do
+            
+            try
             {
-                try
+
+                // Get user input
+                string userName = txtUserName.Text;
+                string password = txtPassword.Text;
+
+                // Validate user input
+                if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password))
                 {
+                    MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //return;
+                }
+                //string PasswordtoHash = PasswordHasher.HashPassword(password);
+                //Console.WriteLine(PasswordtoHash);
+                UserToFind = new UserBL(userName, password);
+                int RoleId = UserDL.FindUser(UserToFind);
+                //frmLogin LoginPage = new frmLogin();
+                //
+                    
 
-                    // Get user input
-                    string userName = txtUserName.Text;
-                    string password = txtPassword.Text;
-
-                    // Validate user input
-                    if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password))
+                if (RoleId == 4)
+                {
+                    // Show the frmUserHome form
+                    using (frmUserHome userHomeForm = new frmUserHome())
                     {
-                        MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        userHomeForm.LoggedInUser = UserToFind;
+                        userHomeForm.ShowDialog();
+                        Console.WriteLine("User Found!");
+                        UserLoggedIn = true;
+                        this.Hide();
                     }
-                    //string PasswordtoHash = PasswordHasher.HashPassword(password);
-                    //Console.WriteLine(PasswordtoHash);
-                    UserToFind = new UserBL(userName, password);
-                    int RoleId = UserDL.FindUser(UserToFind);
-                    //frmLogin LoginPage = new frmLogin();
-                    this.Hide();
+                }
+                else if (RoleId == 3)
+                {
+                    Console.WriteLine("Admin Found!");
                     UserLoggedIn = true;
-
-                    if (RoleId == 4)
-                    {
-                        // Show the frmUserHome form
-                        using (frmUserHome userHomeForm = new frmUserHome())
-                        {
-                            userHomeForm.LoggedInUser = UserToFind;
-                            userHomeForm.ShowDialog();
-                            Console.WriteLine("User Found!");
-                        }
-                    }
-                    else if (RoleId == 3)
-                    {
-                        Console.WriteLine("Admin Found!");
-                    }
+                    this.Hide();
                 }
-                catch (Exception ex)
+                else
                 {
-                    // Handle exceptions, e.g., no internet connection or API request failure
-                    Console.WriteLine($"Error Logging In: {ex.Message}");
-                    // Create an instance of AppLogBL using the constructor
-                    AppLogBL logEntry = new AppLogBL(
-                    DateTime.Now,
-                    "btnLogin ERROR",
-                    "No Username",
-                    Thread.CurrentThread.ManagedThreadId,
-                    UserToFind.UserID, // Replace with the actual method to get the current user ID
-                    Environment.MachineName,
-                    "1.0", // Replace with your actual application version
-                    "An error occurred.",
-                    ex.Message,
-                    ex.StackTrace,
-                    "No Additional information"
-                    );
-                    AppLogDL.AddLogException(logEntry);
+                    txtUserName.Clear();
+                    txtPassword.Clear();
                 }
-
-            } while (UserLoggedIn == false);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., no internet connection or API request failure
+                Console.WriteLine($"Error Logging In: {ex.Message}");
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "btnLogin ERROR",
+                "No Username",
+                Thread.CurrentThread.ManagedThreadId,
+                UserToFind.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "No Additional information"
+                );
+                AppLogDL.AddLogException(logEntry);
+            }
             
 
         }

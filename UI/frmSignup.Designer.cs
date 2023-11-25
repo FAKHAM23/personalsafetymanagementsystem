@@ -38,6 +38,7 @@
             this.lblSecond = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtUserName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox2();
@@ -48,10 +49,9 @@
             this.btnSignUpBack = new MaterialSkin.Controls.MaterialButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.cmbxRole = new MaterialSkin.Controls.MaterialComboBox();
-            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
             this.userRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
             this.userRoleTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.UserRoleTableAdapter();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -60,8 +60,8 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userRoleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -193,6 +193,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.5F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 436);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::WomanSafety.Properties.Resources.Main_Logo;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tableLayoutPanel2.SetColumnSpan(this.panel4, 3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(425, 91);
+            this.panel4.TabIndex = 0;
             // 
             // txtUserName
             // 
@@ -327,13 +338,13 @@
             this.tableLayoutPanel4.Controls.Add(this.btnSignUp, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnSignUpBack, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(81, 336);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(81, 335);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.69841F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.30159F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(262, 97);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(262, 98);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
             // btnSignUp
@@ -404,17 +415,6 @@
             this.label4.Text = "User Name:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::WomanSafety.Properties.Resources.Main_Logo;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tableLayoutPanel2.SetColumnSpan(this.panel4, 3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(425, 91);
-            this.panel4.TabIndex = 0;
-            // 
             // cmbxRole
             // 
             this.cmbxRole.AutoResize = false;
@@ -427,7 +427,7 @@
             this.cmbxRole.DropDownHeight = 118;
             this.cmbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxRole.DropDownWidth = 121;
-            this.cmbxRole.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.cmbxRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cmbxRole.FormattingEnabled = true;
             this.cmbxRole.IntegralHeight = false;
@@ -442,15 +442,15 @@
             this.cmbxRole.UseTallSize = false;
             this.cmbxRole.ValueMember = "UserRoleID";
             // 
-            // personalSafetyDatabaseDataSet2
-            // 
-            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
-            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // userRoleBindingSource
             // 
             this.userRoleBindingSource.DataMember = "UserRole";
             this.userRoleBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
+            // 
+            // personalSafetyDatabaseDataSet2
+            // 
+            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
+            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // userRoleTableAdapter
             // 
@@ -476,8 +476,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userRoleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
