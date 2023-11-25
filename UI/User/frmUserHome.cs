@@ -52,7 +52,6 @@ namespace WomanSafety.UI
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
-            /*materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);*/
             InitializeGmap(gMapHome);
             InitializeGmap(gMapRoute);
             
@@ -64,6 +63,8 @@ namespace WomanSafety.UI
         }
         private void frmUserHome_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.LanguageSupport' table. You can move, or remove it, as needed.
+            this.languageSupportTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.LanguageSupport);
             DataTable reportsDataTable = ReportDL.GetReportsByUser(LoggedInUser);
 
             dgvReport.DataSource = reportsDataTable;
@@ -348,6 +349,11 @@ namespace WomanSafety.UI
                 materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             else
                 materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+        }
+
+        private void cmbxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
