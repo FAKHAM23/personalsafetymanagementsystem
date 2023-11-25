@@ -37,6 +37,7 @@
             this.lblSecond = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtUserName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblForgotPass = new System.Windows.Forms.LinkLabel();
             this.chkShowPass = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -183,6 +183,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(406, 441);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::WomanSafety.Properties.Resources.Main_Logo;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tableLayoutPanel2.SetColumnSpan(this.panel4, 3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(400, 138);
+            this.panel4.TabIndex = 0;
             // 
             // txtUserName
             // 
@@ -333,6 +344,7 @@
             this.btnGoSignup.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGoSignup.UseAccentColor = false;
             this.btnGoSignup.UseVisualStyleBackColor = true;
+            this.btnGoSignup.Click += new System.EventHandler(this.btnGoSignup_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -374,17 +386,6 @@
             this.chkShowPass.Text = "Show Password";
             this.chkShowPass.UseVisualStyleBackColor = true;
             this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::WomanSafety.Properties.Resources.Main_Logo;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tableLayoutPanel2.SetColumnSpan(this.panel4, 3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 138);
-            this.panel4.TabIndex = 0;
             // 
             // frmLogin
             // 

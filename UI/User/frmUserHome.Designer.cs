@@ -44,8 +44,9 @@
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.gMapRoute = new GMap.NET.WindowsForms.GMapControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnLetsGo = new MaterialSkin.Controls.MaterialButton();
             this.tabPageReport = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvAttendance = new System.Windows.Forms.DataGridView();
@@ -90,7 +91,7 @@
             this.tabPageProfile = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
-            this.btnLetsGo = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -116,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.safetyTipsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
+            this.tabPageProfile.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -375,6 +377,25 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(272, 362);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
+            // materialTextBox1
+            // 
+            this.materialTextBox1.AnimateReadOnly = false;
+            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox1.Depth = 0;
+            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBox1.Hint = "From:";
+            this.materialTextBox1.LeadingIcon = null;
+            this.materialTextBox1.Location = new System.Drawing.Point(3, 60);
+            this.materialTextBox1.MaxLength = 50;
+            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox1.Multiline = false;
+            this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.Size = new System.Drawing.Size(266, 36);
+            this.materialTextBox1.TabIndex = 0;
+            this.materialTextBox1.Text = "";
+            this.materialTextBox1.TrailingIcon = null;
+            this.materialTextBox1.UseTallSize = false;
+            // 
             // materialTextBox2
             // 
             this.materialTextBox2.AnimateReadOnly = false;
@@ -394,24 +415,29 @@
             this.materialTextBox2.TrailingIcon = null;
             this.materialTextBox2.UseTallSize = false;
             // 
-            // materialTextBox1
+            // btnLetsGo
             // 
-            this.materialTextBox1.AnimateReadOnly = false;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.Hint = "From:";
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(3, 60);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(266, 36);
-            this.materialTextBox1.TabIndex = 0;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
-            this.materialTextBox1.UseTallSize = false;
+            this.btnLetsGo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLetsGo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLetsGo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            this.btnLetsGo.Depth = 0;
+            this.btnLetsGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLetsGo.HighEmphasis = true;
+            this.btnLetsGo.Icon = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
+            this.btnLetsGo.Image = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
+            this.btnLetsGo.Location = new System.Drawing.Point(81, 261);
+            this.btnLetsGo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLetsGo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLetsGo.Name = "btnLetsGo";
+            this.btnLetsGo.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLetsGo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnLetsGo.Size = new System.Drawing.Size(110, 36);
+            this.btnLetsGo.TabIndex = 3;
+            this.btnLetsGo.Text = "Let\'s Go";
+            this.btnLetsGo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnLetsGo.UseAccentColor = false;
+            this.btnLetsGo.UseVisualStyleBackColor = true;
+            this.btnLetsGo.Click += new System.EventHandler(this.btnLetsGo_Click);
             // 
             // tabPageReport
             // 
@@ -604,7 +630,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.97222F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02778F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel4.Controls.Add(this.txtCLO, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAddCLO, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
@@ -630,7 +656,7 @@
             this.txtCLO.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCLO.Multiline = false;
             this.txtCLO.Name = "txtCLO";
-            this.txtCLO.Size = new System.Drawing.Size(239, 50);
+            this.txtCLO.Size = new System.Drawing.Size(238, 50);
             this.txtCLO.TabIndex = 1;
             this.txtCLO.Text = "";
             this.txtCLO.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtCLO.TrailingIcon")));
@@ -643,7 +669,7 @@
             this.btnAddCLO.Depth = 0;
             this.btnAddCLO.HighEmphasis = true;
             this.btnAddCLO.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddCLO.Icon")));
-            this.btnAddCLO.Location = new System.Drawing.Point(289, 6);
+            this.btnAddCLO.Location = new System.Drawing.Point(287, 6);
             this.btnAddCLO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddCLO.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCLO.Name = "btnAddCLO";
@@ -987,6 +1013,7 @@
             // 
             // tabPageProfile
             // 
+            this.tabPageProfile.Controls.Add(this.tableLayoutPanel8);
             this.tabPageProfile.ImageKey = "icons8-admin-settings-male-32.png";
             this.tabPageProfile.Location = new System.Drawing.Point(4, 39);
             this.tabPageProfile.Name = "tabPageProfile";
@@ -1026,28 +1053,19 @@
             // 
             this.safetyTipsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnLetsGo
+            // tableLayoutPanel8
             // 
-            this.btnLetsGo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLetsGo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLetsGo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            this.btnLetsGo.Depth = 0;
-            this.btnLetsGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLetsGo.HighEmphasis = true;
-            this.btnLetsGo.Icon = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
-            this.btnLetsGo.Image = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
-            this.btnLetsGo.Location = new System.Drawing.Point(81, 261);
-            this.btnLetsGo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLetsGo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLetsGo.Name = "btnLetsGo";
-            this.btnLetsGo.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLetsGo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnLetsGo.Size = new System.Drawing.Size(110, 36);
-            this.btnLetsGo.TabIndex = 3;
-            this.btnLetsGo.Text = "Let\'s Go";
-            this.btnLetsGo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnLetsGo.UseAccentColor = false;
-            this.btnLetsGo.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(835, 418);
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // frmUserHome
             // 
@@ -1094,6 +1112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.safetyTipsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
+            this.tabPageProfile.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1160,5 +1179,6 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton btnLetsGo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
     }
 }

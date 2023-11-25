@@ -143,10 +143,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AppLogBL.cs" />
     <Compile Include="BL\PasswordHasher.cs" />
     <Compile Include="BL\SafetyTipBL.cs" />
     <Compile Include="BL\UserBL.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="DL\AppLogDL.cs" />
     <Compile Include="DL\DatabaseORM.cs" />
     <Compile Include="DL\SafetyTipDL.cs" />
     <Compile Include="DL\UserDL.cs" />
@@ -227,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\icons8-forward-arrow-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

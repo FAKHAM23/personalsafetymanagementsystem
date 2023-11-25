@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -36,6 +37,22 @@ namespace WomanSafety.DL
             catch (Exception ex)
             {
                 MessageBox.Show($"Error inserting user into the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "ERROR",
+                "YourLoggerName",
+                Thread.CurrentThread.ManagedThreadId,
+                NewUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
+
             }
             return false;
         }
@@ -80,6 +97,22 @@ namespace WomanSafety.DL
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during login: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "ERROR",
+                "YourLoggerName",
+                Thread.CurrentThread.ManagedThreadId,
+                NewUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
+
             }
 
             // If the code reaches here, the login attempt failed

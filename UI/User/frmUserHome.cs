@@ -8,10 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using WomanSafety.UI;
 using WomanSafety.BL;
+using WomanSafety.DL;
+using WomanSafety.DL;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
@@ -33,7 +36,14 @@ namespace WomanSafety.UI
         double defaultLatitude = 31.5497; // Lahore's latitude
         double defaultLongitude = 74.3436; // Lahore's longitude
 
-        public UserBL LoggedInUser { get; set; }
+        //public UserBL LoggedInUser { get; set; }
+
+
+        // Create an Temporary instance 
+        public UserBL LoggedInUser = new UserBL(1, "Hajra", "11112222", 4);
+
+
+
 
         public frmUserHome()
         {
@@ -45,18 +55,6 @@ namespace WomanSafety.UI
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
             InitializeGmap(gMapHome);
             InitializeGmap(gMapRoute);
-
-            // Create a PictureBox for the icon
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = Properties.Resources.icons8_forward_arrow_32 ; // Replace with your icon resource
-            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-
-            // Add the button and icon to the FlowLayoutPanel
-            flowLayoutPanel.Controls.Add(btnLetsGo);
-            flowLayoutPanel.Controls.Add(pictureBox);
-
-            // Add the FlowLayoutPanel to your form
-            Controls.Add(flowLayoutPanel);
 
             GetAndPrintLiveLocation();
             // Set the default location when the form is loaded
@@ -115,15 +113,30 @@ namespace WomanSafety.UI
             {
                 // Handle exceptions, e.g., no internet connection or API request failure
                 Console.WriteLine($"Error getting live location: {ex.Message}");
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "ERROR",
+                LoggedInUser.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                LoggedInUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
                 return new PointLatLng(defaultLatitude, defaultLongitude);
+
+
             }
         }
 
         private PointLatLng GetDroppedPinLocation()
         {
-            // Replace this with your actual implementation to get the dropped pin location
-            // For example, you can use a default location or the last known location
-            return new PointLatLng(232, 234);
+            return new PointLatLng(31.5497, 74.3436);
         }
 
         private void UpdateMap(PointLatLng location)
@@ -192,6 +205,22 @@ namespace WomanSafety.UI
             {
                 // Handle any exceptions here (e.g., log or display an error message)
                 Console.WriteLine($"Error in CellClick event: {ex.Message}");
+
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "ERROR",
+                LoggedInUser.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                LoggedInUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
             }
 
 
@@ -203,7 +232,7 @@ namespace WomanSafety.UI
             try
             {
                 string accountSid = "ACb710e8dba2ebaaa3d6b4d0725fa1eb2e";
-                string authToken = "bca485757472fdbb70d3663728dd6135";
+                string authToken = "d57b9dbddda0c31820cf640ebcde7332";
 
                 TwilioClient.Init(accountSid, authToken);
 
@@ -229,8 +258,28 @@ namespace WomanSafety.UI
             catch (Exception ex)
             {
                 MessageBox.Show($"Error sending WhatsApp message: {ex.Message}");
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "ERROR",
+                LoggedInUser.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                LoggedInUser.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
             }
 
+
+        }
+
+        private void btnLetsGo_Click(object sender, EventArgs e)
+        {
 
         }
 

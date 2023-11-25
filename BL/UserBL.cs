@@ -40,7 +40,14 @@ namespace WomanSafety.BL
             UserName = userName;
             Password = password;
         }
-        
+        public UserBL(int userID,string userName, string password, int roleID)
+        {
+            UserID = userID;
+            UserName = userName;
+            Password = password;
+            RoleID = roleID;
+        }
+
 
 
 
