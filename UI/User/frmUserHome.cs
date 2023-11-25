@@ -56,7 +56,7 @@ namespace WomanSafety.UI
             InitializeGmap(gMapHome);
             InitializeGmap(gMapRoute);
 
-            GetAndPrintLiveLocation();
+            //GetAndPrintLiveLocation();
             // Set the default location when the form is loaded
             //SetDefaultLocation();
         }
@@ -116,7 +116,7 @@ namespace WomanSafety.UI
                 // Create an instance of AppLogBL using the constructor
                 AppLogBL logEntry = new AppLogBL(
                 DateTime.Now,
-                "ERROR",
+                "LIVE LOCATION ERROR",
                 LoggedInUser.UserName,
                 Thread.CurrentThread.ManagedThreadId,
                 LoggedInUser.UserID, // Replace with the actual method to get the current user ID
@@ -209,7 +209,7 @@ namespace WomanSafety.UI
                 // Create an instance of AppLogBL using the constructor
                 AppLogBL logEntry = new AppLogBL(
                 DateTime.Now,
-                "ERROR",
+                "DGV ERROR",
                 LoggedInUser.UserName,
                 Thread.CurrentThread.ManagedThreadId,
                 LoggedInUser.UserID, // Replace with the actual method to get the current user ID
@@ -261,7 +261,7 @@ namespace WomanSafety.UI
                 // Create an instance of AppLogBL using the constructor
                 AppLogBL logEntry = new AppLogBL(
                 DateTime.Now,
-                "ERROR",
+                "btnUnSafe ERROR",
                 LoggedInUser.UserName,
                 Thread.CurrentThread.ManagedThreadId,
                 LoggedInUser.UserID, // Replace with the actual method to get the current user ID
@@ -283,7 +283,11 @@ namespace WomanSafety.UI
 
         }
 
-
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            //string ReportInfo = txtUserReport.Text();
+            //ReportBL NewReport = new ReportBL(LoggedInUser.UserID,null);
+        }
     }
 
 

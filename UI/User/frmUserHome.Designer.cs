@@ -49,13 +49,13 @@
             this.btnLetsGo = new MaterialSkin.Controls.MaterialButton();
             this.tabPageReport = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvAttendance = new System.Windows.Forms.DataGridView();
+            this.dgvReport = new System.Windows.Forms.DataGridView();
             this.AttendanceEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.AttendanceDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtpick = new System.Windows.Forms.DateTimePicker();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnAddAttendance = new MaterialSkin.Controls.MaterialButton();
-            this.btnAttdReport = new MaterialSkin.Controls.MaterialButton();
+            this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this.txtUserReport = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.btnReport = new MaterialSkin.Controls.MaterialButton();
             this.tabPageContact = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
@@ -79,19 +79,20 @@
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.txtSafetyTip = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.dgvSafetyTips = new System.Windows.Forms.DataGridView();
-            this.View = new System.Windows.Forms.DataGridViewImageColumn();
             this.tipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewImageColumn();
             this.safetyTipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
+            this.tabPageSetting = new System.Windows.Forms.TabPage();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -102,7 +103,8 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tabPageReport.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            this.materialCard6.SuspendLayout();
             this.tabPageContact.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -127,6 +129,7 @@
             this.materialTabControl1.Controls.Add(this.tabPageReport);
             this.materialTabControl1.Controls.Add(this.tabPageContact);
             this.materialTabControl1.Controls.Add(this.tabPageSafety);
+            this.materialTabControl1.Controls.Add(this.tabPageSetting);
             this.materialTabControl1.Controls.Add(this.tabPageProfile);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -456,41 +459,40 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.02564F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.97436F));
-            this.tableLayoutPanel2.Controls.Add(this.dgvAttendance, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpick, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dgvReport, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.materialLabel2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnAddAttendance, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnAttdReport, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.materialCard6, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnReport, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.23221F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.43446F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(829, 412);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dgvAttendance
+            // dgvReport
             // 
-            this.dgvAttendance.AllowUserToAddRows = false;
-            this.dgvAttendance.AllowUserToOrderColumns = true;
-            this.dgvAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAttendance.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAttendance.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvAttendance.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvReport.AllowUserToAddRows = false;
+            this.dgvReport.AllowUserToOrderColumns = true;
+            this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReport.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvReport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AttendanceEdit,
             this.AttendanceDelete});
-            this.dgvAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAttendance.Location = new System.Drawing.Point(301, 3);
-            this.dgvAttendance.Name = "dgvAttendance";
-            this.dgvAttendance.ReadOnly = true;
-            this.tableLayoutPanel2.SetRowSpan(this.dgvAttendance, 4);
-            this.dgvAttendance.Size = new System.Drawing.Size(525, 406);
-            this.dgvAttendance.TabIndex = 9;
+            this.dgvReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReport.Location = new System.Drawing.Point(301, 3);
+            this.dgvReport.Name = "dgvReport";
+            this.dgvReport.ReadOnly = true;
+            this.tableLayoutPanel2.SetRowSpan(this.dgvReport, 4);
+            this.dgvReport.Size = new System.Drawing.Size(525, 406);
+            this.dgvReport.TabIndex = 9;
             // 
             // AttendanceEdit
             // 
@@ -510,16 +512,6 @@
             this.AttendanceDelete.ReadOnly = true;
             this.AttendanceDelete.Width = 44;
             // 
-            // dtpick
-            // 
-            this.dtpick.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpick.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtpick.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpick.Location = new System.Drawing.Point(3, 126);
-            this.dtpick.Name = "dtpick";
-            this.dtpick.Size = new System.Drawing.Size(181, 26);
-            this.dtpick.TabIndex = 8;
-            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
@@ -531,50 +523,63 @@
             this.materialLabel2.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(125, 29);
+            this.materialLabel2.Size = new System.Drawing.Size(72, 29);
             this.materialLabel2.TabIndex = 5;
-            this.materialLabel2.Text = "Attendance";
+            this.materialLabel2.Text = "Report";
             this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.materialLabel2.UseAccent = true;
             this.materialLabel2.UseMnemonic = false;
             // 
-            // btnAddAttendance
+            // materialCard6
             // 
-            this.btnAddAttendance.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddAttendance.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAddAttendance.Depth = 0;
-            this.btnAddAttendance.HighEmphasis = true;
-            this.btnAddAttendance.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddAttendance.Icon")));
-            this.btnAddAttendance.Location = new System.Drawing.Point(4, 181);
-            this.btnAddAttendance.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAddAttendance.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddAttendance.Name = "btnAddAttendance";
-            this.btnAddAttendance.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAddAttendance.Size = new System.Drawing.Size(180, 36);
-            this.btnAddAttendance.TabIndex = 6;
-            this.btnAddAttendance.Text = "New Attendance";
-            this.btnAddAttendance.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAddAttendance.UseAccentColor = false;
-            this.btnAddAttendance.UseVisualStyleBackColor = true;
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this.txtUserReport);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(14, 43);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(270, 157);
+            this.materialCard6.TabIndex = 12;
             // 
-            // btnAttdReport
+            // txtUserReport
             // 
-            this.btnAttdReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAttdReport.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAttdReport.Depth = 0;
-            this.btnAttdReport.HighEmphasis = true;
-            this.btnAttdReport.Icon = null;
-            this.btnAttdReport.Location = new System.Drawing.Point(4, 375);
-            this.btnAttdReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAttdReport.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAttdReport.Name = "btnAttdReport";
-            this.btnAttdReport.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAttdReport.Size = new System.Drawing.Size(107, 31);
-            this.btnAttdReport.TabIndex = 10;
-            this.btnAttdReport.Text = "PDF Report";
-            this.btnAttdReport.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAttdReport.UseAccentColor = false;
-            this.btnAttdReport.UseVisualStyleBackColor = true;
+            this.txtUserReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtUserReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserReport.Depth = 0;
+            this.txtUserReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUserReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUserReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtUserReport.Location = new System.Drawing.Point(14, 14);
+            this.txtUserReport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtUserReport.Name = "txtUserReport";
+            this.txtUserReport.Size = new System.Drawing.Size(242, 129);
+            this.txtUserReport.TabIndex = 11;
+            this.txtUserReport.Text = "";
+            // 
+            // btnReport
+            // 
+            this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReport.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnReport.Depth = 0;
+            this.btnReport.HighEmphasis = true;
+            this.btnReport.Icon = null;
+            this.btnReport.Location = new System.Drawing.Point(76, 220);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReport.Name = "btnReport";
+            this.btnReport.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnReport.Size = new System.Drawing.Size(146, 36);
+            this.btnReport.TabIndex = 10;
+            this.btnReport.Text = "Report Incident";
+            this.btnReport.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReport.UseAccentColor = false;
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // tabPageContact
             // 
@@ -630,7 +635,7 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.97222F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02778F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel4.Controls.Add(this.txtCLO, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAddCLO, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
@@ -656,7 +661,7 @@
             this.txtCLO.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCLO.Multiline = false;
             this.txtCLO.Name = "txtCLO";
-            this.txtCLO.Size = new System.Drawing.Size(238, 50);
+            this.txtCLO.Size = new System.Drawing.Size(235, 50);
             this.txtCLO.TabIndex = 1;
             this.txtCLO.Text = "";
             this.txtCLO.TrailingIcon = ((System.Drawing.Image)(resources.GetObject("txtCLO.TrailingIcon")));
@@ -669,7 +674,7 @@
             this.btnAddCLO.Depth = 0;
             this.btnAddCLO.HighEmphasis = true;
             this.btnAddCLO.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddCLO.Icon")));
-            this.btnAddCLO.Location = new System.Drawing.Point(287, 6);
+            this.btnAddCLO.Location = new System.Drawing.Point(283, 6);
             this.btnAddCLO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddCLO.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCLO.Name = "btnAddCLO";
@@ -911,7 +916,7 @@
             this.txtSafetyTip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSafetyTip.Depth = 0;
             this.txtSafetyTip.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSafetyTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSafetyTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.txtSafetyTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txtSafetyTip.Location = new System.Drawing.Point(14, 14);
             this.txtSafetyTip.MouseState = MaterialSkin.MouseState.HOVER;
@@ -933,13 +938,13 @@
             this.dgvSafetyTips.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvSafetyTips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSafetyTips.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.View,
             this.tipIDDataGridViewTextBoxColumn,
             this.Title,
             this.Description,
             this.createdAtDataGridViewTextBoxColumn,
             this.updatedAtDataGridViewTextBoxColumn,
-            this.userIDDataGridViewTextBoxColumn});
+            this.userIDDataGridViewTextBoxColumn,
+            this.View});
             this.tableLayoutPanel6.SetColumnSpan(this.dgvSafetyTips, 2);
             this.dgvSafetyTips.DataSource = this.safetyTipsBindingSource;
             this.dgvSafetyTips.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -949,15 +954,6 @@
             this.dgvSafetyTips.Size = new System.Drawing.Size(829, 254);
             this.dgvSafetyTips.TabIndex = 1;
             this.dgvSafetyTips.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSafetyTips_CellClick);
-            // 
-            // View
-            // 
-            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.View.HeaderText = "View";
-            this.View.Image = ((System.Drawing.Image)(resources.GetObject("View.Image")));
-            this.View.Name = "View";
-            this.View.ReadOnly = true;
-            this.View.Width = 36;
             // 
             // tipIDDataGridViewTextBoxColumn
             // 
@@ -1001,6 +997,15 @@
             this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
             this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.View.HeaderText = "View";
+            this.View.Image = ((System.Drawing.Image)(resources.GetObject("View.Image")));
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Width = 36;
+            // 
             // safetyTipsBindingSource
             // 
             this.safetyTipsBindingSource.DataMember = "SafetyTips";
@@ -1010,6 +1015,16 @@
             // 
             this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
             this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPageSetting
+            // 
+            this.tabPageSetting.ImageKey = "icons8-gear-32.png";
+            this.tabPageSetting.Location = new System.Drawing.Point(4, 39);
+            this.tabPageSetting.Name = "tabPageSetting";
+            this.tabPageSetting.Size = new System.Drawing.Size(835, 418);
+            this.tabPageSetting.TabIndex = 6;
+            this.tabPageSetting.Text = "Setting";
+            this.tabPageSetting.UseVisualStyleBackColor = true;
             // 
             // tabPageProfile
             // 
@@ -1021,6 +1036,20 @@
             this.tabPageProfile.TabIndex = 5;
             this.tabPageProfile.Text = "Profile";
             this.tabPageProfile.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(835, 418);
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -1048,24 +1077,12 @@
             this.imageList1.Images.SetKeyName(19, "icons8-tips-32.png");
             this.imageList1.Images.SetKeyName(20, "icons8-safety-32.png");
             this.imageList1.Images.SetKeyName(21, "icons8-contacts1-32.png");
+            this.imageList1.Images.SetKeyName(22, "icons8-setting-32 (1).png");
+            this.imageList1.Images.SetKeyName(23, "icons8-gear-32.png");
             // 
             // safetyTipsTableAdapter
             // 
             this.safetyTipsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(835, 418);
-            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // frmUserHome
             // 
@@ -1093,7 +1110,8 @@
             this.tabPageReport.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
+            this.materialCard6.ResumeLayout(false);
             this.tabPageContact.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.materialCard3.ResumeLayout(false);
@@ -1125,13 +1143,11 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.TabPage tabPageReport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dgvAttendance;
+        private System.Windows.Forms.DataGridView dgvReport;
         private System.Windows.Forms.DataGridViewImageColumn AttendanceEdit;
         private System.Windows.Forms.DataGridViewImageColumn AttendanceDelete;
-        private System.Windows.Forms.DateTimePicker dtpick;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialButton btnAddAttendance;
-        private MaterialSkin.Controls.MaterialButton btnAttdReport;
+        private MaterialSkin.Controls.MaterialButton btnReport;
         private System.Windows.Forms.TabPage tabPageContact;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private MaterialSkin.Controls.MaterialCard materialCard3;
@@ -1180,5 +1196,8 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton btnLetsGo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TabPage tabPageSetting;
+        private MaterialSkin.Controls.MaterialCard materialCard6;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox txtUserReport;
     }
 }

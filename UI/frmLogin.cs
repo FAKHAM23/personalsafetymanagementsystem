@@ -94,7 +94,7 @@ namespace WomanSafety
                     // Create an instance of AppLogBL using the constructor
                     AppLogBL logEntry = new AppLogBL(
                     DateTime.Now,
-                    "ERROR",
+                    "btnLogin ERROR",
                     "No Username",
                     Thread.CurrentThread.ManagedThreadId,
                     UserToFind.UserID, // Replace with the actual method to get the current user ID

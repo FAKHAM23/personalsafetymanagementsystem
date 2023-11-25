@@ -40,7 +40,7 @@ namespace WomanSafety.DL
                 // Create an instance of AppLogBL using the constructor
                 AppLogBL logEntry = new AppLogBL(
                 DateTime.Now,
-                "ERROR",
+                "AddUser ERROR",
                 "YourLoggerName",
                 Thread.CurrentThread.ManagedThreadId,
                 NewUser.UserID, // Replace with the actual method to get the current user ID
@@ -100,7 +100,7 @@ namespace WomanSafety.DL
                 // Create an instance of AppLogBL using the constructor
                 AppLogBL logEntry = new AppLogBL(
                 DateTime.Now,
-                "ERROR",
+                "FindUser ERROR",
                 "YourLoggerName",
                 Thread.CurrentThread.ManagedThreadId,
                 NewUser.UserID, // Replace with the actual method to get the current user ID
