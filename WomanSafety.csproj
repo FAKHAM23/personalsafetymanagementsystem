@@ -151,6 +151,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="DL\AppLogDL.cs" />
     <Compile Include="DL\DatabaseORM.cs" />
+    <Compile Include="DL\LocationDL.cs" />
     <Compile Include="DL\ReportDL.cs" />
     <Compile Include="DL\SafetyTipDL.cs" />
     <Compile Include="DL\UserDL.cs" />

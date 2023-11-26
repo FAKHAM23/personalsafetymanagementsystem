@@ -45,8 +45,10 @@ namespace WomanSafety.UI.Admin
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.txtAdminMessage = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.btnSendMessage = new MaterialSkin.Controls.MaterialButton();
             this.tabPageReport = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -79,6 +81,7 @@ namespace WomanSafety.UI.Admin
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.cmbxLanguage = new MaterialSkin.Controls.MaterialComboBox();
+            this.languageSupportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
             this.swhThemeA = new MaterialSkin.Controls.MaterialSwitch();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
@@ -96,10 +99,8 @@ namespace WomanSafety.UI.Admin
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.reportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.ReportTableAdapter();
             this.reportTableAdapter1 = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.ReportTableAdapter();
-            this.txtAdminMessage = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.languageSupportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languageSupportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.LanguageSupportTableAdapter();
+            this.btnAdminLogOut = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -122,10 +123,10 @@ namespace WomanSafety.UI.Admin
             this.tableLayoutPanel9.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.languageSupportBindingSource)).BeginInit();
             this.materialCard7.SuspendLayout();
             this.tabPageProfile.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languageSupportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -338,13 +339,28 @@ namespace WomanSafety.UI.Admin
             this.materialCard2.Controls.Add(this.txtAdminMessage);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(52, 70);
+            this.materialCard2.Location = new System.Drawing.Point(51, 70);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard2.Size = new System.Drawing.Size(372, 229);
             this.materialCard2.TabIndex = 6;
+            // 
+            // txtAdminMessage
+            // 
+            this.txtAdminMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtAdminMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAdminMessage.Depth = 0;
+            this.txtAdminMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAdminMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAdminMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtAdminMessage.Location = new System.Drawing.Point(14, 14);
+            this.txtAdminMessage.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAdminMessage.Name = "txtAdminMessage";
+            this.txtAdminMessage.Size = new System.Drawing.Size(344, 201);
+            this.txtAdminMessage.TabIndex = 0;
+            this.txtAdminMessage.Text = "";
             // 
             // tableLayoutPanel7
             // 
@@ -354,7 +370,7 @@ namespace WomanSafety.UI.Admin
             this.tableLayoutPanel7.Controls.Add(this.materialTextBox2, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.btnSendMessage, 0, 5);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(479, 39);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(477, 39);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 7;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -364,7 +380,7 @@ namespace WomanSafety.UI.Admin
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(298, 292);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(300, 292);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
             // materialTextBox1
@@ -386,6 +402,26 @@ namespace WomanSafety.UI.Admin
             this.materialTextBox1.TrailingIcon = null;
             this.materialTextBox1.UseTallSize = false;
             // 
+            // materialTextBox2
+            // 
+            this.materialTextBox2.AnimateReadOnly = false;
+            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox2.Depth = 0;
+            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox2.Hint = "To:";
+            this.materialTextBox2.LeadingIcon = null;
+            this.materialTextBox2.Location = new System.Drawing.Point(3, 125);
+            this.materialTextBox2.MaxLength = 50;
+            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox2.Multiline = false;
+            this.materialTextBox2.Name = "materialTextBox2";
+            this.materialTextBox2.ReadOnly = true;
+            this.materialTextBox2.Size = new System.Drawing.Size(267, 36);
+            this.materialTextBox2.TabIndex = 1;
+            this.materialTextBox2.Text = "Twilio Police: +1 (415) 523-8886";
+            this.materialTextBox2.TrailingIcon = null;
+            this.materialTextBox2.UseTallSize = false;
+            // 
             // btnSendMessage
             // 
             this.btnSendMessage.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -397,7 +433,7 @@ namespace WomanSafety.UI.Admin
             this.btnSendMessage.Icon = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
             this.btnSendMessage.Image = global::WomanSafety.Properties.Resources.icons8_forward_arrow_32;
             this.btnSendMessage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSendMessage.Location = new System.Drawing.Point(70, 210);
+            this.btnSendMessage.Location = new System.Drawing.Point(71, 210);
             this.btnSendMessage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSendMessage.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSendMessage.Name = "btnSendMessage";
@@ -859,6 +895,11 @@ namespace WomanSafety.UI.Admin
             this.cmbxLanguage.UseTallSize = false;
             this.cmbxLanguage.ValueMember = "LanguageID";
             // 
+            // languageSupportBindingSource
+            // 
+            this.languageSupportBindingSource.DataMember = "LanguageSupport";
+            this.languageSupportBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
+            // 
             // materialCard7
             // 
             this.materialCard7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -931,6 +972,7 @@ namespace WomanSafety.UI.Admin
             this.tableLayoutPanel4.Controls.Add(this.txtpUsername, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.cmbxbGender, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.dateOfBirth, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.btnAdminLogOut, 0, 6);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -1173,49 +1215,32 @@ namespace WomanSafety.UI.Admin
             // 
             this.reportTableAdapter1.ClearBeforeFill = true;
             // 
-            // txtAdminMessage
-            // 
-            this.txtAdminMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtAdminMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAdminMessage.Depth = 0;
-            this.txtAdminMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAdminMessage.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtAdminMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtAdminMessage.Location = new System.Drawing.Point(14, 14);
-            this.txtAdminMessage.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtAdminMessage.Name = "txtAdminMessage";
-            this.txtAdminMessage.Size = new System.Drawing.Size(344, 201);
-            this.txtAdminMessage.TabIndex = 0;
-            this.txtAdminMessage.Text = "";
-            // 
-            // materialTextBox2
-            // 
-            this.materialTextBox2.AnimateReadOnly = false;
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox2.Hint = "To:";
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.Location = new System.Drawing.Point(3, 125);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.ReadOnly = true;
-            this.materialTextBox2.Size = new System.Drawing.Size(267, 36);
-            this.materialTextBox2.TabIndex = 1;
-            this.materialTextBox2.Text = "Twilio Police: +1 (415) 523-8886";
-            this.materialTextBox2.TrailingIcon = null;
-            this.materialTextBox2.UseTallSize = false;
-            // 
-            // languageSupportBindingSource
-            // 
-            this.languageSupportBindingSource.DataMember = "LanguageSupport";
-            this.languageSupportBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
-            // 
             // languageSupportTableAdapter
             // 
             this.languageSupportTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnAdminLogOut
+            // 
+            this.btnAdminLogOut.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAdminLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel4.SetColumnSpan(this.btnAdminLogOut, 2);
+            this.btnAdminLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAdminLogOut.Depth = 0;
+            this.btnAdminLogOut.HighEmphasis = true;
+            this.btnAdminLogOut.Icon = null;
+            this.btnAdminLogOut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAdminLogOut.Location = new System.Drawing.Point(352, 258);
+            this.btnAdminLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAdminLogOut.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAdminLogOut.Name = "btnAdminLogOut";
+            this.btnAdminLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAdminLogOut.Size = new System.Drawing.Size(82, 30);
+            this.btnAdminLogOut.TabIndex = 24;
+            this.btnAdminLogOut.Text = "Log Out";
+            this.btnAdminLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAdminLogOut.UseAccentColor = false;
+            this.btnAdminLogOut.UseVisualStyleBackColor = true;
+            this.btnAdminLogOut.Click += new System.EventHandler(this.btnAdminLogOut_Click);
             // 
             // frmAdmin
             // 
@@ -1260,12 +1285,12 @@ namespace WomanSafety.UI.Admin
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.materialCard4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.languageSupportBindingSource)).EndInit();
             this.materialCard7.ResumeLayout(false);
             this.materialCard7.PerformLayout();
             this.tabPageProfile.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languageSupportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1341,5 +1366,6 @@ namespace WomanSafety.UI.Admin
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private System.Windows.Forms.BindingSource languageSupportBindingSource;
         private PersonalSafetyDatabaseDataSet2TableAdapters.LanguageSupportTableAdapter languageSupportTableAdapter;
+        private MaterialSkin.Controls.MaterialButton btnAdminLogOut;
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using WomanSafety.UI;
+using WomanSafety.UI.Admin;
 using WomanSafety.BL;
 using WomanSafety.DL;
 using System.Threading;
@@ -48,7 +49,7 @@ namespace WomanSafety
         private void btnLogin_Click(object sender, EventArgs e)
         {
             UserBL UserToFind= null;
-            bool UserLoggedIn = false;
+            //bool UserLoggedIn = false;
             
             try
             {
@@ -79,15 +80,20 @@ namespace WomanSafety
                         userHomeForm.LoggedInUser = UserToFind;
                         userHomeForm.ShowDialog();
                         Console.WriteLine("User Found!");
-                        UserLoggedIn = true;
+                        //UserLoggedIn = true;
                         this.Hide();
                     }
                 }
                 else if (RoleId == 3)
                 {
-                    Console.WriteLine("Admin Found!");
-                    UserLoggedIn = true;
-                    this.Hide();
+                    using (frmAdmin AdminForm = new frmAdmin())
+                    {
+                        AdminForm.LoggedInUser = UserToFind;
+                        AdminForm.ShowDialog();
+                        Console.WriteLine("Admin Found!");
+                        //UserLoggedIn = true;
+                        this.Hide();
+                    }
                 }
                 else
                 {

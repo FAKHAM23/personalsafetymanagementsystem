@@ -206,10 +206,11 @@ namespace WomanSafety.UI.Admin
                 materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
         }
 
-
-
-
-
-
+        private void btnAdminLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin Login = new frmLogin();
+            Login.Show();
+        }
     }
 }

@@ -44,9 +44,12 @@
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.gMapRoute = new GMap.NET.WindowsForms.GMapControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.btnLetsGo = new MaterialSkin.Controls.MaterialButton();
+            this.cmbxRouteFrom = new MaterialSkin.Controls.MaterialComboBox();
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
+            this.cmbxRouteTo = new MaterialSkin.Controls.MaterialComboBox();
+            this.locationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageReport = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvReport = new System.Windows.Forms.DataGridView();
@@ -59,7 +62,6 @@
             this.createdAtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedAtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
             this.txtUserReport = new MaterialSkin.Controls.MaterialMultiLineTextBox();
@@ -115,6 +117,7 @@
             this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
             this.languageSupportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.LanguageSupportTableAdapter();
             this.reportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.ReportTableAdapter();
+            this.locationTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.LocationTableAdapter();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -123,11 +126,13 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource1)).BeginInit();
             this.tabPageReport.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
             this.materialCard6.SuspendLayout();
             this.tabPageContact.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -211,7 +216,6 @@
             this.swhSendLocation.Name = "swhSendLocation";
             this.swhSendLocation.Ripple = true;
             this.swhSendLocation.UseVisualStyleBackColor = true;
-            this.swhSendLocation.CheckedChanged += new System.EventHandler(this.swhSendLocation_CheckedChanged);
             // 
             // crdmap
             // 
@@ -247,6 +251,7 @@
             this.gMapHome.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapHome.ShowTileGridLines = false;
             this.gMapHome.Zoom = 0D;
+            this.gMapHome.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gMapHome_MouseDoubleClick);
             // 
             // tabPageRoute
             // 
@@ -312,34 +317,10 @@
             // tableLayoutPanel7
             // 
             resources.ApplyResources(this.tableLayoutPanel7, "tableLayoutPanel7");
-            this.tableLayoutPanel7.Controls.Add(this.materialTextBox1, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.materialTextBox2, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.btnLetsGo, 0, 5);
+            this.tableLayoutPanel7.Controls.Add(this.cmbxRouteFrom, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cmbxRouteTo, 0, 4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.AnimateReadOnly = false;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            resources.ApplyResources(this.materialTextBox1, "materialTextBox1");
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.TrailingIcon = null;
-            this.materialTextBox1.UseTallSize = false;
-            // 
-            // materialTextBox2
-            // 
-            this.materialTextBox2.AnimateReadOnly = false;
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            resources.ApplyResources(this.materialTextBox2, "materialTextBox2");
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.TrailingIcon = null;
-            this.materialTextBox2.UseTallSize = false;
             // 
             // btnLetsGo
             // 
@@ -356,6 +337,61 @@
             this.btnLetsGo.UseAccentColor = false;
             this.btnLetsGo.UseVisualStyleBackColor = true;
             this.btnLetsGo.Click += new System.EventHandler(this.btnLetsGo_Click);
+            // 
+            // cmbxRouteFrom
+            // 
+            resources.ApplyResources(this.cmbxRouteFrom, "cmbxRouteFrom");
+            this.cmbxRouteFrom.AutoResize = false;
+            this.cmbxRouteFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbxRouteFrom.DataSource = this.locationBindingSource;
+            this.cmbxRouteFrom.Depth = 0;
+            this.cmbxRouteFrom.DisplayMember = "Address";
+            this.cmbxRouteFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbxRouteFrom.DropDownHeight = 118;
+            this.cmbxRouteFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxRouteFrom.DropDownWidth = 121;
+            this.cmbxRouteFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbxRouteFrom.FormattingEnabled = true;
+            this.cmbxRouteFrom.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbxRouteFrom.Name = "cmbxRouteFrom";
+            this.cmbxRouteFrom.StartIndex = 0;
+            this.cmbxRouteFrom.UseTallSize = false;
+            this.cmbxRouteFrom.ValueMember = "LocationID";
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataMember = "Location";
+            this.locationBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
+            // 
+            // personalSafetyDatabaseDataSet2
+            // 
+            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
+            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cmbxRouteTo
+            // 
+            resources.ApplyResources(this.cmbxRouteTo, "cmbxRouteTo");
+            this.cmbxRouteTo.AutoResize = false;
+            this.cmbxRouteTo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbxRouteTo.DataSource = this.locationBindingSource1;
+            this.cmbxRouteTo.Depth = 0;
+            this.cmbxRouteTo.DisplayMember = "Address";
+            this.cmbxRouteTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbxRouteTo.DropDownHeight = 118;
+            this.cmbxRouteTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxRouteTo.DropDownWidth = 121;
+            this.cmbxRouteTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbxRouteTo.FormattingEnabled = true;
+            this.cmbxRouteTo.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbxRouteTo.Name = "cmbxRouteTo";
+            this.cmbxRouteTo.StartIndex = 0;
+            this.cmbxRouteTo.UseTallSize = false;
+            this.cmbxRouteTo.ValueMember = "LocationID";
+            // 
+            // locationBindingSource1
+            // 
+            this.locationBindingSource1.DataMember = "Location";
+            this.locationBindingSource1.DataSource = this.personalSafetyDatabaseDataSet2;
             // 
             // tabPageReport
             // 
@@ -460,11 +496,6 @@
             // 
             this.reportBindingSource.DataMember = "Report";
             this.reportBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
-            // 
-            // personalSafetyDatabaseDataSet2
-            // 
-            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
-            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // materialLabel2
             // 
@@ -988,6 +1019,7 @@
             this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnLogOut.UseAccentColor = false;
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnAdd
             // 
@@ -1046,6 +1078,10 @@
             // 
             this.reportTableAdapter.ClearBeforeFill = true;
             // 
+            // locationTableAdapter
+            // 
+            this.locationTableAdapter.ClearBeforeFill = true;
+            // 
             // frmUserHome
             // 
             resources.ApplyResources(this, "$this");
@@ -1066,12 +1102,14 @@
             this.materialCard2.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource1)).EndInit();
             this.tabPageReport.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
             this.materialCard6.ResumeLayout(false);
             this.tabPageContact.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1146,8 +1184,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private GMap.NET.WindowsForms.GMapControl gMapRoute;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton btnLetsGo;
         private System.Windows.Forms.TabPage tabPageSetting;
         private MaterialSkin.Controls.MaterialCard materialCard6;
@@ -1186,5 +1222,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedAtDataGridViewTextBoxColumn1;
         private MaterialSkin.Controls.MaterialButton btnLogOut;
         private MaterialSkin.Controls.MaterialButton btnAdd;
+        private MaterialSkin.Controls.MaterialComboBox cmbxRouteFrom;
+        private MaterialSkin.Controls.MaterialComboBox cmbxRouteTo;
+        private System.Windows.Forms.BindingSource locationBindingSource;
+        private PersonalSafetyDatabaseDataSet2TableAdapters.LocationTableAdapter locationTableAdapter;
+        private System.Windows.Forms.BindingSource locationBindingSource1;
     }
 }

@@ -36,11 +36,14 @@ namespace WomanSafety.UI
         double defaultLatitude = 31.5497; // Lahore's latitude
         double defaultLongitude = 74.3436; // Lahore's longitude
 
-        public UserBL LoggedInUser { get; set; }
+        double pixelX = 0.0;
+        double pixelY = 0.0;
+
+        //public UserBL LoggedInUser { get; set; }
 
 
         // Create an Temporary instance 
-        //public UserBL LoggedInUser = new UserBL(2, "Hajra", "11112222", 4);
+        public UserBL LoggedInUser = new UserBL(2, "Hajra", "11112222", 4);
 
 
 
@@ -63,6 +66,8 @@ namespace WomanSafety.UI
         }
         private void frmUserHome_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.Location' table. You can move, or remove it, as needed.
+            this.locationTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.Location);
             // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.Report' table. You can move, or remove it, as needed.
             this.reportTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.Report);
             // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.LanguageSupport' table. You can move, or remove it, as needed.
@@ -145,30 +150,29 @@ namespace WomanSafety.UI
             }
         }
 
-        private PointLatLng GetDroppedPinLocation()
-        {
-            return new PointLatLng(31.5497, 74.3436);
-        }
-
-        private void UpdateMap(PointLatLng location)
-        {
-            // Update the map position
-            gMapHome.Position = location;
-        }
-
-        private void SetDefaultLocation()
-        {
-            // Set the default location when the form is loaded
-            PointLatLng defaultLocation = GetDroppedPinLocation();
-            UpdateMap(defaultLocation);
-        }
-
-        private void swhSendLocation_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         
+
+
+        private void gMapHome_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            pixelX = e.X;
+            pixelY = e.Y;
+            var markersOverlay = new GMap.NET.WindowsForms.GMapOverlay("marker1");
+
+            // Convert pixel coordinates to geographical coordinates
+            GMap.NET.PointLatLng markerPosition = gMapHome.FromLocalToLatLng((int)pixelX, (int)pixelY);
+
+            // Marker at the specified geographical coordinates
+            var marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                markerPosition,
+                GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_small);
+
+
+            markersOverlay.Markers.Add(marker);
+            gMapHome.Overlays.Add(markersOverlay);
+            
+        }
+
 
         private void dgvSafetyTips_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -242,12 +246,10 @@ namespace WomanSafety.UI
 
                 TwilioClient.Init(accountSid, authToken);
 
-                // Get the live location
-                PointLatLng liveLocation = await GetLiveLocationAsync();
-
+                
                 // Compose the message
                 /*string messageBody = $"{LoggedInUser.UserName} is in danger at location: {liveLocation.Lat}, {liveLocation.Lng}";*/
-                string messageBody = $"Ali is in danger at location: {liveLocation.Lat}, {liveLocation.Lng}";
+                string messageBody = $"{LoggedInUser.UserName} is in danger at Coordinates: {defaultLatitude}, {defaultLongitude}";
 
                 // The WhatsApp number to send the message to (replace with your target number)
                 string toPhoneNumber = "+923448657308";  // Replace with the target WhatsApp number
@@ -286,6 +288,39 @@ namespace WomanSafety.UI
 
         private void btnLetsGo_Click(object sender, EventArgs e)
         {
+            int OriginId = (int)cmbxRouteFrom.SelectedValue;
+            int DestinationId= (int)cmbxRouteTo.SelectedValue;
+
+            PointLatLng origin = LocationDL.GetLocationCoordinates(OriginId) ; // San Francisco
+            PointLatLng destination = LocationDL.GetLocationCoordinates(DestinationId); // Los Angeles
+
+
+            // Set your origin and destination coordinates
+            /*PointLatLng origin = new PointLatLng(37.7749, -122.4194); // San Francisco
+            PointLatLng destination = new PointLatLng(34.0522, -118.2437); // Los Angeles*/
+
+            // Get route information
+            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(origin, destination, false, false, 15);
+
+            if (route != null)
+            {
+                // Create a route overlay
+                GMapRoute routeOverlay = new GMapRoute(route.Points, "Route");
+                GMapOverlay routesOverlay = new GMapOverlay("Routes");
+                routesOverlay.Routes.Add(routeOverlay);
+
+                // Add the overlay to the map
+                gMapRoute.Overlays.Clear();
+                gMapRoute.Overlays.Add(routesOverlay);
+
+                // Zoom to fit the route
+                gMapRoute.ZoomAndCenterRoutes("Routes");
+            }
+            else
+            {
+                MessageBox.Show("Error fetching route.");
+            }
+
 
         }
 
@@ -366,6 +401,13 @@ namespace WomanSafety.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin Login = new frmLogin();
+            Login.Show();
         }
     }
 
