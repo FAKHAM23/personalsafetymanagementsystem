@@ -159,6 +159,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PersonalSafetyDatabaseDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\Admin\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     <Compile Include="UI\User\frmUserHome.designer.cs">
       <DependentUpon>frmUserHome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Admin\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +205,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\User\frmUserHome.resx">
+      <DependentUpon>frmUserHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\frmUserHome.ur.resx">
       <DependentUpon>frmUserHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

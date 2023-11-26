@@ -36,11 +36,11 @@ namespace WomanSafety.UI
         double defaultLatitude = 31.5497; // Lahore's latitude
         double defaultLongitude = 74.3436; // Lahore's longitude
 
-        //public UserBL LoggedInUser { get; set; }
+        public UserBL LoggedInUser { get; set; }
 
 
         // Create an Temporary instance 
-        public UserBL LoggedInUser = new UserBL(2, "Hajra", "11112222", 4);
+        //public UserBL LoggedInUser = new UserBL(2, "Hajra", "11112222", 4);
 
 
 
@@ -63,11 +63,13 @@ namespace WomanSafety.UI
         }
         private void frmUserHome_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.Report' table. You can move, or remove it, as needed.
+            this.reportTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.Report);
             // TODO: This line of code loads data into the 'personalSafetyDatabaseDataSet2.LanguageSupport' table. You can move, or remove it, as needed.
             this.languageSupportTableAdapter.Fill(this.personalSafetyDatabaseDataSet2.LanguageSupport);
-            DataTable reportsDataTable = ReportDL.GetReportsByUser(LoggedInUser);
+            //DataTable reportsDataTable = ReportDL.GetReportsByUser(LoggedInUser);
 
-            dgvReport.DataSource = reportsDataTable;
+            //dgvReport.DataSource = reportsDataTable;
 
         }
         private void InitializeGmap(GMapControl gMap1)
@@ -293,6 +295,11 @@ namespace WomanSafety.UI
             {
                 int? LocationId = null;
                 string feedbackText = txtUserReport.Text;
+                if (feedbackText == "")
+                {
+                    throw new Exception("Feedback text cannot be null.");
+                }
+
                 ReportBL NewReport = new ReportBL(LoggedInUser.UserID, LocationId, feedbackText, DateTime.Now, DateTime.Now);
                 ReportDL.AddReport(NewReport, LoggedInUser);
                 //MessageBox.Show("Report Added!");
@@ -354,6 +361,11 @@ namespace WomanSafety.UI
         private void cmbxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

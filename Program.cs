@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WomanSafety.UI;
+using WomanSafety.UI.Admin;
 
 namespace WomanSafety
 {
@@ -17,7 +18,7 @@ namespace WomanSafety
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUserHome());
+            Application.Run(new frmAdmin());
         }
     }
 }

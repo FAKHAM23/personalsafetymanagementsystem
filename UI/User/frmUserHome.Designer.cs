@@ -52,6 +52,14 @@
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.AttendanceEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.AttendanceDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.reportIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feedbackTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdAtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatedAtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
             this.txtUserReport = new MaterialSkin.Controls.MaterialMultiLineTextBox();
@@ -76,7 +84,6 @@
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewImageColumn();
             this.safetyTipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personalSafetyDatabaseDataSet2 = new WomanSafety.PersonalSafetyDatabaseDataSet2();
             this.tabPageSetting = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -102,9 +109,12 @@
             this.txtpUsername = new MaterialSkin.Controls.MaterialTextBox();
             this.cmbxbGender = new MaterialSkin.Controls.MaterialComboBox();
             this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
+            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.safetyTipsTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.SafetyTipsTableAdapter();
             this.languageSupportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.LanguageSupportTableAdapter();
+            this.reportTableAdapter = new WomanSafety.PersonalSafetyDatabaseDataSet2TableAdapters.ReportTableAdapter();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.tblHome.SuspendLayout();
@@ -116,6 +126,8 @@
             this.tabPageReport.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
             this.materialCard6.SuspendLayout();
             this.tabPageContact.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -126,7 +138,6 @@
             this.materialCard5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.safetyTipsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).BeginInit();
             this.tabPageSetting.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -366,6 +377,7 @@
             // 
             this.dgvReport.AllowUserToAddRows = false;
             this.dgvReport.AllowUserToOrderColumns = true;
+            this.dgvReport.AutoGenerateColumns = false;
             this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReport.BackgroundColor = System.Drawing.Color.White;
             this.dgvReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -373,7 +385,14 @@
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AttendanceEdit,
-            this.AttendanceDelete});
+            this.AttendanceDelete,
+            this.reportIDDataGridViewTextBoxColumn,
+            this.userIDDataGridViewTextBoxColumn1,
+            this.locationIDDataGridViewTextBoxColumn,
+            this.feedbackTextDataGridViewTextBoxColumn,
+            this.createdAtDataGridViewTextBoxColumn1,
+            this.updatedAtDataGridViewTextBoxColumn1});
+            this.dgvReport.DataSource = this.reportBindingSource;
             resources.ApplyResources(this.dgvReport, "dgvReport");
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.ReadOnly = true;
@@ -394,6 +413,58 @@
             this.AttendanceDelete.Image = ((System.Drawing.Image)(resources.GetObject("AttendanceDelete.Image")));
             this.AttendanceDelete.Name = "AttendanceDelete";
             this.AttendanceDelete.ReadOnly = true;
+            // 
+            // reportIDDataGridViewTextBoxColumn
+            // 
+            this.reportIDDataGridViewTextBoxColumn.DataPropertyName = "ReportID";
+            resources.ApplyResources(this.reportIDDataGridViewTextBoxColumn, "reportIDDataGridViewTextBoxColumn");
+            this.reportIDDataGridViewTextBoxColumn.Name = "reportIDDataGridViewTextBoxColumn";
+            this.reportIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userIDDataGridViewTextBoxColumn1
+            // 
+            this.userIDDataGridViewTextBoxColumn1.DataPropertyName = "UserID";
+            resources.ApplyResources(this.userIDDataGridViewTextBoxColumn1, "userIDDataGridViewTextBoxColumn1");
+            this.userIDDataGridViewTextBoxColumn1.Name = "userIDDataGridViewTextBoxColumn1";
+            this.userIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // locationIDDataGridViewTextBoxColumn
+            // 
+            this.locationIDDataGridViewTextBoxColumn.DataPropertyName = "LocationID";
+            resources.ApplyResources(this.locationIDDataGridViewTextBoxColumn, "locationIDDataGridViewTextBoxColumn");
+            this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
+            this.locationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // feedbackTextDataGridViewTextBoxColumn
+            // 
+            this.feedbackTextDataGridViewTextBoxColumn.DataPropertyName = "FeedbackText";
+            resources.ApplyResources(this.feedbackTextDataGridViewTextBoxColumn, "feedbackTextDataGridViewTextBoxColumn");
+            this.feedbackTextDataGridViewTextBoxColumn.Name = "feedbackTextDataGridViewTextBoxColumn";
+            this.feedbackTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createdAtDataGridViewTextBoxColumn1
+            // 
+            this.createdAtDataGridViewTextBoxColumn1.DataPropertyName = "CreatedAt";
+            resources.ApplyResources(this.createdAtDataGridViewTextBoxColumn1, "createdAtDataGridViewTextBoxColumn1");
+            this.createdAtDataGridViewTextBoxColumn1.Name = "createdAtDataGridViewTextBoxColumn1";
+            this.createdAtDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // updatedAtDataGridViewTextBoxColumn1
+            // 
+            this.updatedAtDataGridViewTextBoxColumn1.DataPropertyName = "UpdatedAt";
+            resources.ApplyResources(this.updatedAtDataGridViewTextBoxColumn1, "updatedAtDataGridViewTextBoxColumn1");
+            this.updatedAtDataGridViewTextBoxColumn1.Name = "updatedAtDataGridViewTextBoxColumn1";
+            this.updatedAtDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // reportBindingSource
+            // 
+            this.reportBindingSource.DataMember = "Report";
+            this.reportBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
+            // 
+            // personalSafetyDatabaseDataSet2
+            // 
+            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
+            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // materialLabel2
             // 
@@ -619,11 +690,6 @@
             this.safetyTipsBindingSource.DataMember = "SafetyTips";
             this.safetyTipsBindingSource.DataSource = this.personalSafetyDatabaseDataSet2;
             // 
-            // personalSafetyDatabaseDataSet2
-            // 
-            this.personalSafetyDatabaseDataSet2.DataSetName = "PersonalSafetyDatabaseDataSet2";
-            this.personalSafetyDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabPageSetting
             // 
             this.tabPageSetting.Controls.Add(this.tableLayoutPanel9);
@@ -793,6 +859,8 @@
             this.tableLayoutPanel4.Controls.Add(this.txtpUsername, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.cmbxbGender, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.dateOfBirth, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.btnLogOut, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.btnAdd, 1, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             // 
             // txtpPhone
@@ -906,6 +974,37 @@
             this.dateOfBirth.Name = "dateOfBirth";
             this.dateOfBirth.Value = new System.DateTime(2023, 11, 26, 0, 0, 0, 0);
             // 
+            // btnLogOut
+            // 
+            resources.ApplyResources(this.btnLogOut, "btnLogOut");
+            this.tableLayoutPanel4.SetColumnSpan(this.btnLogOut, 2);
+            this.btnLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogOut.Depth = 0;
+            this.btnLogOut.HighEmphasis = true;
+            this.btnLogOut.Icon = null;
+            this.btnLogOut.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnLogOut.UseAccentColor = false;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAdd.Depth = 0;
+            this.btnAdd.HighEmphasis = true;
+            this.btnAdd.Icon = null;
+            this.btnAdd.ImageList = this.imageList1;
+            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAdd.UseAccentColor = false;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -943,6 +1042,10 @@
             // 
             this.languageSupportTableAdapter.ClearBeforeFill = true;
             // 
+            // reportTableAdapter
+            // 
+            this.reportTableAdapter.ClearBeforeFill = true;
+            // 
             // frmUserHome
             // 
             resources.ApplyResources(this, "$this");
@@ -967,6 +1070,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
             this.materialCard6.ResumeLayout(false);
             this.tabPageContact.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -979,7 +1084,6 @@
             this.materialCard5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSafetyTips)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.safetyTipsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalSafetyDatabaseDataSet2)).EndInit();
             this.tabPageSetting.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -1072,5 +1176,15 @@
         private MaterialSkin.Controls.MaterialTextBox txtpUsername;
         private MaterialSkin.Controls.MaterialComboBox cmbxbGender;
         private System.Windows.Forms.DateTimePicker dateOfBirth;
+        private System.Windows.Forms.BindingSource reportBindingSource;
+        private PersonalSafetyDatabaseDataSet2TableAdapters.ReportTableAdapter reportTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn feedbackTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updatedAtDataGridViewTextBoxColumn1;
+        private MaterialSkin.Controls.MaterialButton btnLogOut;
+        private MaterialSkin.Controls.MaterialButton btnAdd;
     }
 }

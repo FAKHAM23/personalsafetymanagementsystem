@@ -119,6 +119,77 @@ namespace WomanSafety.DL
             return 0;
         }
 
+        public static int GetUserCount(UserBL user)
+        {
+            int count = 0;
+            try
+            {
+                var con = Configuration.getInstance().getConnection();
+                string query = "SELECT COUNT(*) FROM [User] WHERE RoleID = 4";
+
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    count= (int)command.ExecuteScalar();
+                }
+                return count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Loading Count: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "GetUserCount ERROR",
+                user.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                user.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
+                return -1;
+            }
+        }
+        public static int GetDeletedUserCount(UserBL user)
+        {
+            int count = 0;
+            try
+            {
+                var con = Configuration.getInstance().getConnection();
+                string query = "SELECT COUNT(*) FROM [User] WHERE RoleID = 4 AND Status = 'Inactive'";
+
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    count = (int)command.ExecuteScalar();
+                }
+                return count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Loading Count: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Create an instance of AppLogBL using the constructor
+                AppLogBL logEntry = new AppLogBL(
+                DateTime.Now,
+                "GetUserCount ERROR",
+                user.UserName,
+                Thread.CurrentThread.ManagedThreadId,
+                user.UserID, // Replace with the actual method to get the current user ID
+                Environment.MachineName,
+                "1.0", // Replace with your actual application version
+                "An error occurred.",
+                ex.Message,
+                ex.StackTrace,
+                "Additional information if needed."
+                );
+                AppLogDL.AddLogException(logEntry);
+                return -1;
+            }
+        }
+
 
 
 

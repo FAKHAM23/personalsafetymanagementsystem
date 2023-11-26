@@ -78,3 +78,7 @@ D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagement
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Microsoft.IdentityModel.Tokens.xml
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\Twilio.xml
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\bin\Debug\ur\WomanSafety.resources.dll
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\obj\Debug\WomanSafety.UI.Admin.frmAdmin.resources
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\obj\Debug\WomanSafety.UI.frmUserHome.ur.resources
+D:\bachelor degree\SEMESTER 05\SE Labs\Semester project\personalsafetymanagementsystem\obj\Debug\ur\WomanSafety.resources.dll
